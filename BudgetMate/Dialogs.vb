@@ -484,7 +484,7 @@ Public Class LimitsDialog
         Dim y As Integer = ContentTop
 
         Dim intro As New Label()
-        intro.Text = "Set a monthly cap for each category. The bars update as you add transactions."
+        intro.Text = "Set a monthly cap for each category. It applies to every month. Use 0 for no limit."
         intro.AutoSize = False
         intro.SetBounds(Pad, y - 8, innerW, 36)
         intro.Font = Fnt(False, 9.5F)

@@ -24,14 +24,8 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         pnlDashboard = New Panel()
-        pnlHeader = New Panel()
-        PesoLogo = New Label()
-        BudgetMateTitle = New Label()
-        Tagline = New Label()
-        ToggleTheme = New Button()
-        DataDropdown = New ComboBox()
-        AddTransaction = New Button()
         PnlContent = New Panel()
         BottomLeftBGText = New Label()
         BottomRightBGText = New Label()
@@ -220,8 +214,16 @@ Partial Class MainForm
         Perc3 = New Label()
         Perc6 = New Label()
         Perc4 = New Label()
+        pnlHeader = New Panel()
+        PictureBox1 = New PictureBox()
+        LogoMain = New PictureBox()
+        PesoLogo = New Label()
+        BudgetMateTitle = New Label()
+        Tagline = New Label()
+        ToggleTheme = New Button()
+        DataDropdown = New ComboBox()
+        AddTransaction = New Button()
         pnlDashboard.SuspendLayout()
-        pnlHeader.SuspendLayout()
         PnlContent.SuspendLayout()
         TransHistoryPnl.SuspendLayout()
         RecTransPnl.SuspendLayout()
@@ -249,11 +251,13 @@ Partial Class MainForm
         CardBG1.SuspendLayout()
         ExpBDBG.SuspendLayout()
         DonutChartArea.SuspendLayout()
+        pnlHeader.SuspendLayout()
+        CType(PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(LogoMain, System.ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlDashboard
         ' 
-        pnlDashboard.AutoScroll = False
         pnlDashboard.Controls.Add(PnlContent)
         pnlDashboard.Controls.Add(pnlHeader)
         pnlDashboard.Dock = DockStyle.Fill
@@ -263,85 +267,9 @@ Partial Class MainForm
         pnlDashboard.Size = New System.Drawing.Size(1895, 1055)
         pnlDashboard.TabIndex = 0
         ' 
-        ' pnlHeader
-        ' 
-        pnlHeader.Controls.Add(PesoLogo)
-        pnlHeader.Controls.Add(BudgetMateTitle)
-        pnlHeader.Controls.Add(Tagline)
-        pnlHeader.Controls.Add(ToggleTheme)
-        pnlHeader.Controls.Add(DataDropdown)
-        pnlHeader.Controls.Add(AddTransaction)
-        pnlHeader.Dock = DockStyle.Top
-        pnlHeader.Location = New System.Drawing.Point(20, 20)
-        pnlHeader.Name = "pnlHeader"
-        pnlHeader.Size = New System.Drawing.Size(1855, 75)
-        pnlHeader.TabIndex = 0
-        ' 
-        ' PesoLogo
-        ' 
-        PesoLogo.AutoSize = True
-        PesoLogo.BackColor = Drawing.Color.FromArgb(CByte(0), CByte(192), CByte(0))
-        PesoLogo.Font = New System.Drawing.Font("Segoe UI", 18.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        PesoLogo.ForeColor = Drawing.Color.White
-        PesoLogo.Location = New System.Drawing.Point(23, 17)
-        PesoLogo.Name = "PesoLogo"
-        PesoLogo.Size = New System.Drawing.Size(37, 41)
-        PesoLogo.TabIndex = 1
-        PesoLogo.Text = "₱"
-        ' 
-        ' BudgetMateTitle
-        ' 
-        BudgetMateTitle.AutoSize = True
-        BudgetMateTitle.ForeColor = Drawing.SystemColors.ButtonFace
-        BudgetMateTitle.Location = New System.Drawing.Point(78, 17)
-        BudgetMateTitle.Name = "BudgetMateTitle"
-        BudgetMateTitle.Size = New System.Drawing.Size(91, 20)
-        BudgetMateTitle.TabIndex = 1
-        BudgetMateTitle.Text = "BudgetMate"
-        ' 
-        ' Tagline
-        ' 
-        Tagline.AutoSize = True
-        Tagline.ForeColor = Drawing.SystemColors.ButtonFace
-        Tagline.Location = New System.Drawing.Point(78, 38)
-        Tagline.Name = "Tagline"
-        Tagline.Size = New System.Drawing.Size(187, 20)
-        Tagline.TabIndex = 2
-        Tagline.Text = "Your finances, made easier."
-        ' 
-        ' ToggleTheme
-        ' 
-        ToggleTheme.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        ToggleTheme.Location = New System.Drawing.Point(1445, 6)
-        ToggleTheme.Name = "ToggleTheme"
-        ToggleTheme.Size = New System.Drawing.Size(65, 63)
-        ToggleTheme.TabIndex = 1
-        ToggleTheme.UseVisualStyleBackColor = True
-        ' 
-        ' DataDropdown
-        ' 
-        DataDropdown.FormattingEnabled = True
-        DataDropdown.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        DataDropdown.Location = New System.Drawing.Point(1526, 24)
-        DataDropdown.Name = "DataDropdown"
-        DataDropdown.Size = New System.Drawing.Size(130, 28)
-        DataDropdown.TabIndex = 1
-        DataDropdown.Text = "Data"
-        ' 
-        ' AddTransaction
-        ' 
-        AddTransaction.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        AddTransaction.Location = New System.Drawing.Point(1674, 17)
-        AddTransaction.Name = "AddTransaction"
-        AddTransaction.Size = New System.Drawing.Size(153, 41)
-        AddTransaction.TabIndex = 3
-        AddTransaction.Text = "+ Add Transaction"
-        AddTransaction.UseVisualStyleBackColor = True
-        ' 
         ' PnlContent
         ' 
         PnlContent.AutoScroll = True
-        PnlContent.Dock = DockStyle.Fill
         PnlContent.Controls.Add(BottomLeftBGText)
         PnlContent.Controls.Add(BottomRightBGText)
         PnlContent.Controls.Add(TransHistoryPnl)
@@ -360,9 +288,10 @@ Partial Class MainForm
         PnlContent.Controls.Add(CashFlowBG)
         PnlContent.Controls.Add(CardBG1)
         PnlContent.Controls.Add(ExpBDBG)
-        PnlContent.Location = New System.Drawing.Point(0, 75)
+        PnlContent.Dock = DockStyle.Fill
+        PnlContent.Location = New System.Drawing.Point(20, 110)
         PnlContent.Name = "PnlContent"
-        PnlContent.Size = New System.Drawing.Size(1855, 1015)
+        PnlContent.Size = New System.Drawing.Size(1855, 925)
         PnlContent.TabIndex = 12
         ' 
         ' BottomLeftBGText
@@ -387,6 +316,7 @@ Partial Class MainForm
         ' 
         ' TransHistoryPnl
         ' 
+        TransHistoryPnl.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         TransHistoryPnl.Controls.Add(AddTransButton)
         TransHistoryPnl.Controls.Add(EmptyTransDesc)
         TransHistoryPnl.Controls.Add(EmptyTransactionHeading)
@@ -405,7 +335,8 @@ Partial Class MainForm
         ' 
         ' AddTransButton
         ' 
-        AddTransButton.Location = New System.Drawing.Point(611, 275)
+        AddTransButton.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        AddTransButton.Location = New System.Drawing.Point(616, 275)
         AddTransButton.Name = "AddTransButton"
         AddTransButton.Size = New System.Drawing.Size(227, 59)
         AddTransButton.TabIndex = 22
@@ -415,25 +346,28 @@ Partial Class MainForm
         ' EmptyTransDesc
         ' 
         EmptyTransDesc.AutoSize = True
+        EmptyTransDesc.Font = New System.Drawing.Font("Verdana", 9F)
         EmptyTransDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptyTransDesc.Location = New System.Drawing.Point(540, 239)
+        EmptyTransDesc.Location = New System.Drawing.Point(521, 239)
         EmptyTransDesc.Name = "EmptyTransDesc"
-        EmptyTransDesc.Size = New System.Drawing.Size(372, 20)
+        EmptyTransDesc.Size = New System.Drawing.Size(425, 18)
         EmptyTransDesc.TabIndex = 21
         EmptyTransDesc.Text = "Add your first transaction to see this month take shape."
         ' 
         ' EmptyTransactionHeading
         ' 
         EmptyTransactionHeading.AutoSize = True
-        EmptyTransactionHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptyTransactionHeading.Location = New System.Drawing.Point(679, 210)
+        EmptyTransactionHeading.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        EmptyTransactionHeading.ForeColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
+        EmptyTransactionHeading.Location = New System.Drawing.Point(660, 210)
         EmptyTransactionHeading.Name = "EmptyTransactionHeading"
-        EmptyTransactionHeading.Size = New System.Drawing.Size(88, 20)
+        EmptyTransactionHeading.Size = New System.Drawing.Size(137, 22)
         EmptyTransactionHeading.TabIndex = 20
         EmptyTransactionHeading.Text = "A fresh start"
         ' 
         ' FilterReset
         ' 
+        FilterReset.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         FilterReset.Location = New System.Drawing.Point(1257, 79)
         FilterReset.Name = "FilterReset"
         FilterReset.Size = New System.Drawing.Size(148, 29)
@@ -443,46 +377,51 @@ Partial Class MainForm
         ' 
         ' PaymentMethodFilter
         ' 
+        PaymentMethodFilter.Font = New System.Drawing.Font("Verdana", 10.8F)
         PaymentMethodFilter.FormattingEnabled = True
         PaymentMethodFilter.Location = New System.Drawing.Point(897, 80)
         PaymentMethodFilter.Name = "PaymentMethodFilter"
-        PaymentMethodFilter.Size = New System.Drawing.Size(340, 28)
+        PaymentMethodFilter.Size = New System.Drawing.Size(340, 30)
         PaymentMethodFilter.TabIndex = 18
         PaymentMethodFilter.Text = "All Payment Methods"
         ' 
         ' CategoryFilter
         ' 
+        CategoryFilter.Font = New System.Drawing.Font("Verdana", 10.8F)
         CategoryFilter.FormattingEnabled = True
         CategoryFilter.Location = New System.Drawing.Point(598, 79)
         CategoryFilter.Name = "CategoryFilter"
-        CategoryFilter.Size = New System.Drawing.Size(279, 28)
+        CategoryFilter.Size = New System.Drawing.Size(279, 30)
         CategoryFilter.TabIndex = 17
         CategoryFilter.Text = "All Categories"
         ' 
         ' TypeFilter
         ' 
+        TypeFilter.Font = New System.Drawing.Font("Verdana", 10.8F)
         TypeFilter.FormattingEnabled = True
         TypeFilter.Location = New System.Drawing.Point(403, 79)
         TypeFilter.Name = "TypeFilter"
-        TypeFilter.Size = New System.Drawing.Size(175, 28)
+        TypeFilter.Size = New System.Drawing.Size(175, 30)
         TypeFilter.TabIndex = 16
         TypeFilter.Text = "All Types"
         ' 
         ' TransactionSearchBox
         ' 
+        TransactionSearchBox.Font = New System.Drawing.Font("Verdana", 10.8F)
         TransactionSearchBox.Location = New System.Drawing.Point(25, 80)
         TransactionSearchBox.Name = "TransactionSearchBox"
-        TransactionSearchBox.Size = New System.Drawing.Size(357, 27)
+        TransactionSearchBox.Size = New System.Drawing.Size(357, 29)
         TransactionSearchBox.TabIndex = 15
         TransactionSearchBox.Text = "Search transactions..."
         ' 
         ' RecordsCount
         ' 
         RecordsCount.AutoSize = True
+        RecordsCount.Font = New System.Drawing.Font("Verdana", 9F)
         RecordsCount.ForeColor = Drawing.SystemColors.ButtonFace
         RecordsCount.Location = New System.Drawing.Point(1297, 29)
         RecordsCount.Name = "RecordsCount"
-        RecordsCount.Size = New System.Drawing.Size(103, 20)
+        RecordsCount.Size = New System.Drawing.Size(119, 18)
         RecordsCount.TabIndex = 13
         RecordsCount.Text = "0 of 0 records."
         ' 
@@ -496,15 +435,17 @@ Partial Class MainForm
         ' TransactionHistoryHeading
         ' 
         TransactionHistoryHeading.AutoSize = True
+        TransactionHistoryHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         TransactionHistoryHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        TransactionHistoryHeading.Location = New System.Drawing.Point(75, 29)
+        TransactionHistoryHeading.Location = New System.Drawing.Point(75, 27)
         TransactionHistoryHeading.Name = "TransactionHistoryHeading"
-        TransactionHistoryHeading.Size = New System.Drawing.Size(135, 20)
+        TransactionHistoryHeading.Size = New System.Drawing.Size(233, 25)
         TransactionHistoryHeading.TabIndex = 13
         TransactionHistoryHeading.Text = "Transaction History"
         ' 
         ' RecTransPnl
         ' 
+        RecTransPnl.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         RecTransPnl.Controls.Add(ActiveCounter)
         RecTransPnl.Controls.Add(EmptyRecTransDesc)
         RecTransPnl.Controls.Add(RecTransDesc)
@@ -518,30 +459,33 @@ Partial Class MainForm
         ' ActiveCounter
         ' 
         ActiveCounter.AutoSize = True
+        ActiveCounter.Font = New System.Drawing.Font("Verdana", 9F)
         ActiveCounter.ForeColor = Drawing.SystemColors.ButtonFace
         ActiveCounter.Location = New System.Drawing.Point(1345, 21)
         ActiveCounter.Name = "ActiveCounter"
-        ActiveCounter.Size = New System.Drawing.Size(60, 20)
+        ActiveCounter.Size = New System.Drawing.Size(67, 18)
         ActiveCounter.TabIndex = 12
         ActiveCounter.Text = "0 active"
         ' 
         ' EmptyRecTransDesc
         ' 
         EmptyRecTransDesc.AutoSize = True
+        EmptyRecTransDesc.Font = New System.Drawing.Font("Verdana", 9F)
         EmptyRecTransDesc.ForeColor = Drawing.SystemColors.ButtonFace
         EmptyRecTransDesc.Location = New System.Drawing.Point(23, 97)
         EmptyRecTransDesc.Name = "EmptyRecTransDesc"
-        EmptyRecTransDesc.Size = New System.Drawing.Size(551, 20)
+        EmptyRecTransDesc.Size = New System.Drawing.Size(626, 18)
         EmptyRecTransDesc.TabIndex = 11
         EmptyRecTransDesc.Text = "Nothing repeats yet. Tick ""Repeat this transaction every month."" when adding one."
         ' 
         ' RecTransDesc
         ' 
         RecTransDesc.AutoSize = True
+        RecTransDesc.Font = New System.Drawing.Font("Verdana", 9F)
         RecTransDesc.ForeColor = Drawing.SystemColors.ButtonFace
         RecTransDesc.Location = New System.Drawing.Point(23, 65)
         RecTransDesc.Name = "RecTransDesc"
-        RecTransDesc.Size = New System.Drawing.Size(404, 20)
+        RecTransDesc.Size = New System.Drawing.Size(461, 18)
         RecTransDesc.TabIndex = 10
         RecTransDesc.Text = "Salary, rent, subscriptions, and bills that repeat every month."
         ' 
@@ -555,30 +499,33 @@ Partial Class MainForm
         ' RecTranHeading
         ' 
         RecTranHeading.AutoSize = True
+        RecTranHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         RecTranHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        RecTranHeading.Location = New System.Drawing.Point(75, 21)
+        RecTranHeading.Location = New System.Drawing.Point(75, 19)
         RecTranHeading.Name = "RecTranHeading"
-        RecTranHeading.Size = New System.Drawing.Size(157, 20)
+        RecTranHeading.Size = New System.Drawing.Size(242, 25)
         RecTranHeading.TabIndex = 8
         RecTranHeading.Text = "Recurring Transactions"
         ' 
         ' ViewMonth
         ' 
         ViewMonth.AutoSize = True
+        ViewMonth.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         ViewMonth.ForeColor = Drawing.SystemColors.ButtonFace
-        ViewMonth.Location = New System.Drawing.Point(1207, 105)
+        ViewMonth.Location = New System.Drawing.Point(1192, 119)
         ViewMonth.Name = "ViewMonth"
-        ViewMonth.Size = New System.Drawing.Size(109, 20)
+        ViewMonth.Size = New System.Drawing.Size(161, 22)
         ViewMonth.TabIndex = 5
         ViewMonth.Text = "Viewing Month"
         ' 
         ' HeadingDescription
         ' 
         HeadingDescription.AutoSize = True
+        HeadingDescription.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         HeadingDescription.ForeColor = Drawing.SystemColors.ButtonFace
-        HeadingDescription.Location = New System.Drawing.Point(42, 197)
+        HeadingDescription.Location = New System.Drawing.Point(42, 195)
         HeadingDescription.Name = "HeadingDescription"
-        HeadingDescription.Size = New System.Drawing.Size(393, 20)
+        HeadingDescription.Size = New System.Drawing.Size(446, 18)
         HeadingDescription.TabIndex = 3
         HeadingDescription.Text = "A clearer picture of your money, one transaction at a time."
         ' 
@@ -587,7 +534,7 @@ Partial Class MainForm
         MonthNavContainer.Controls.Add(MonthAndYear)
         MonthNavContainer.Controls.Add(NextMonth)
         MonthNavContainer.Controls.Add(PreviousMonth)
-        MonthNavContainer.Location = New System.Drawing.Point(1097, 132)
+        MonthNavContainer.Location = New System.Drawing.Point(1107, 146)
         MonthNavContainer.Name = "MonthNavContainer"
         MonthNavContainer.Size = New System.Drawing.Size(332, 71)
         MonthNavContainer.TabIndex = 4
@@ -595,10 +542,11 @@ Partial Class MainForm
         ' MonthAndYear
         ' 
         MonthAndYear.AutoSize = True
+        MonthAndYear.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         MonthAndYear.ForeColor = Drawing.SystemColors.ButtonFace
-        MonthAndYear.Location = New System.Drawing.Point(108, 26)
+        MonthAndYear.Location = New System.Drawing.Point(82, 26)
         MonthAndYear.Name = "MonthAndYear"
-        MonthAndYear.Size = New System.Drawing.Size(114, 20)
+        MonthAndYear.Size = New System.Drawing.Size(171, 22)
         MonthAndYear.TabIndex = 6
         MonthAndYear.Text = "December 2026"
         MonthAndYear.TextAlign = Drawing.ContentAlignment.MiddleCenter
@@ -623,6 +571,7 @@ Partial Class MainForm
         ' 
         ' SavingGoalsPnl
         ' 
+        SavingGoalsPnl.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         SavingGoalsPnl.Controls.Add(CreateFirstGoal)
         SavingGoalsPnl.Controls.Add(EmptySavGoalsSubHeading)
         SavingGoalsPnl.Controls.Add(EmptySavGoalsHeading)
@@ -638,20 +587,22 @@ Partial Class MainForm
         ' CreateFirstGoal
         ' 
         CreateFirstGoal.AutoSize = True
-        CreateFirstGoal.ForeColor = Drawing.SystemColors.ButtonFace
-        CreateFirstGoal.Location = New System.Drawing.Point(221, 223)
+        CreateFirstGoal.Font = New System.Drawing.Font("Verdana", 10.8F)
+        CreateFirstGoal.ForeColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
+        CreateFirstGoal.Location = New System.Drawing.Point(192, 223)
         CreateFirstGoal.Name = "CreateFirstGoal"
-        CreateFirstGoal.Size = New System.Drawing.Size(168, 20)
+        CreateFirstGoal.Size = New System.Drawing.Size(232, 22)
         CreateFirstGoal.TabIndex = 19
         CreateFirstGoal.Text = "Create your first goal ->"
         ' 
         ' EmptySavGoalsSubHeading
         ' 
         EmptySavGoalsSubHeading.AutoSize = True
+        EmptySavGoalsSubHeading.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         EmptySavGoalsSubHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptySavGoalsSubHeading.Location = New System.Drawing.Point(170, 178)
+        EmptySavGoalsSubHeading.Location = New System.Drawing.Point(155, 180)
         EmptySavGoalsSubHeading.Name = "EmptySavGoalsSubHeading"
-        EmptySavGoalsSubHeading.Size = New System.Drawing.Size(269, 20)
+        EmptySavGoalsSubHeading.Size = New System.Drawing.Size(304, 18)
         EmptySavGoalsSubHeading.TabIndex = 18
         EmptySavGoalsSubHeading.Text = "Add a transaction to see your cash flow"
         EmptySavGoalsSubHeading.TextAlign = Drawing.ContentAlignment.MiddleCenter
@@ -659,10 +610,11 @@ Partial Class MainForm
         ' EmptySavGoalsHeading
         ' 
         EmptySavGoalsHeading.AutoSize = True
+        EmptySavGoalsHeading.Font = New System.Drawing.Font("Verdana", 10.8F)
         EmptySavGoalsHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptySavGoalsHeading.Location = New System.Drawing.Point(205, 158)
+        EmptySavGoalsHeading.Location = New System.Drawing.Point(168, 156)
         EmptySavGoalsHeading.Name = "EmptySavGoalsHeading"
-        EmptySavGoalsHeading.Size = New System.Drawing.Size(195, 20)
+        EmptySavGoalsHeading.Size = New System.Drawing.Size(274, 22)
         EmptySavGoalsHeading.TabIndex = 17
         EmptySavGoalsHeading.Text = "Your money story starts here"
         ' 
@@ -675,6 +627,7 @@ Partial Class MainForm
         ' 
         ' AddNewGoal
         ' 
+        AddNewGoal.Font = New System.Drawing.Font("Verdana", 10.8F)
         AddNewGoal.Location = New System.Drawing.Point(440, 15)
         AddNewGoal.Name = "AddNewGoal"
         AddNewGoal.Size = New System.Drawing.Size(142, 38)
@@ -692,25 +645,28 @@ Partial Class MainForm
         ' SavGoalsHeading
         ' 
         SavGoalsHeading.AutoSize = True
+        SavGoalsHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         SavGoalsHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        SavGoalsHeading.Location = New System.Drawing.Point(75, 22)
+        SavGoalsHeading.Location = New System.Drawing.Point(75, 20)
         SavGoalsHeading.Name = "SavGoalsHeading"
-        SavGoalsHeading.Size = New System.Drawing.Size(94, 20)
+        SavGoalsHeading.Size = New System.Drawing.Size(156, 25)
         SavGoalsHeading.TabIndex = 8
         SavGoalsHeading.Text = "Saving Goals"
         ' 
         ' MainHeading
         ' 
         MainHeading.AutoSize = True
+        MainHeading.Font = New System.Drawing.Font("Verdana", 19.8000011F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         MainHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        MainHeading.Location = New System.Drawing.Point(42, 172)
+        MainHeading.Location = New System.Drawing.Point(34, 147)
         MainHeading.Name = "MainHeading"
-        MainHeading.Size = New System.Drawing.Size(160, 20)
+        MainHeading.Size = New System.Drawing.Size(462, 41)
         MainHeading.TabIndex = 2
         MainHeading.Text = "Make every cent count."
         ' 
         ' WalletsAndAccsPnl
         ' 
+        WalletsAndAccsPnl.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         WalletsAndAccsPnl.Controls.Add(WalletCard4)
         WalletsAndAccsPnl.Controls.Add(WalletCard3)
         WalletsAndAccsPnl.Controls.Add(WalletCard2)
@@ -726,6 +682,7 @@ Partial Class MainForm
         ' 
         ' WalletCard4
         ' 
+        WalletCard4.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         WalletCard4.Controls.Add(AmtBDO)
         WalletCard4.Controls.Add(BDOHeading)
         WalletCard4.Location = New System.Drawing.Point(410, 181)
@@ -736,25 +693,28 @@ Partial Class MainForm
         ' AmtBDO
         ' 
         AmtBDO.AutoSize = True
+        AmtBDO.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
         AmtBDO.ForeColor = Drawing.SystemColors.ButtonFace
         AmtBDO.Location = New System.Drawing.Point(62, 41)
         AmtBDO.Name = "AmtBDO"
-        AmtBDO.Size = New System.Drawing.Size(49, 20)
+        AmtBDO.Size = New System.Drawing.Size(72, 28)
         AmtBDO.TabIndex = 16
         AmtBDO.Text = "₱ 0.00"
         ' 
         ' BDOHeading
         ' 
         BDOHeading.AutoSize = True
+        BDOHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         BDOHeading.ForeColor = Drawing.SystemColors.ButtonFace
         BDOHeading.Location = New System.Drawing.Point(62, 21)
         BDOHeading.Name = "BDOHeading"
-        BDOHeading.Size = New System.Drawing.Size(144, 20)
+        BDOHeading.Size = New System.Drawing.Size(152, 20)
         BDOHeading.TabIndex = 14
         BDOHeading.Text = "BDO - Bank Account"
         ' 
         ' WalletCard3
         ' 
+        WalletCard3.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         WalletCard3.Controls.Add(AmtGCash)
         WalletCard3.Controls.Add(GCashHeading)
         WalletCard3.Location = New System.Drawing.Point(410, 67)
@@ -765,25 +725,28 @@ Partial Class MainForm
         ' AmtGCash
         ' 
         AmtGCash.AutoSize = True
+        AmtGCash.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
         AmtGCash.ForeColor = Drawing.SystemColors.ButtonFace
         AmtGCash.Location = New System.Drawing.Point(62, 43)
         AmtGCash.Name = "AmtGCash"
-        AmtGCash.Size = New System.Drawing.Size(49, 20)
+        AmtGCash.Size = New System.Drawing.Size(72, 28)
         AmtGCash.TabIndex = 14
         AmtGCash.Text = "₱ 0.00"
         ' 
         ' GCashHeading
         ' 
         GCashHeading.AutoSize = True
+        GCashHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         GCashHeading.ForeColor = Drawing.SystemColors.ButtonFace
         GCashHeading.Location = New System.Drawing.Point(62, 23)
         GCashHeading.Name = "GCashHeading"
-        GCashHeading.Size = New System.Drawing.Size(118, 20)
+        GCashHeading.Size = New System.Drawing.Size(123, 20)
         GCashHeading.TabIndex = 13
         GCashHeading.Text = "GCash - E-wallet"
         ' 
         ' WalletCard2
         ' 
+        WalletCard2.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         WalletCard2.Controls.Add(AmtMaya)
         WalletCard2.Controls.Add(MayaHeading)
         WalletCard2.Location = New System.Drawing.Point(26, 181)
@@ -794,25 +757,28 @@ Partial Class MainForm
         ' AmtMaya
         ' 
         AmtMaya.AutoSize = True
+        AmtMaya.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
         AmtMaya.ForeColor = Drawing.SystemColors.ButtonFace
         AmtMaya.Location = New System.Drawing.Point(63, 41)
         AmtMaya.Name = "AmtMaya"
-        AmtMaya.Size = New System.Drawing.Size(49, 20)
+        AmtMaya.Size = New System.Drawing.Size(72, 28)
         AmtMaya.TabIndex = 15
         AmtMaya.Text = "₱ 0.00"
         ' 
         ' MayaHeading
         ' 
         MayaHeading.AutoSize = True
+        MayaHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MayaHeading.ForeColor = Drawing.SystemColors.ButtonFace
         MayaHeading.Location = New System.Drawing.Point(63, 21)
         MayaHeading.Name = "MayaHeading"
-        MayaHeading.Size = New System.Drawing.Size(113, 20)
+        MayaHeading.Size = New System.Drawing.Size(117, 20)
         MayaHeading.TabIndex = 13
         MayaHeading.Text = "Maya - E-wallet"
         ' 
         ' WalletCard1
         ' 
+        WalletCard1.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         WalletCard1.Controls.Add(AmtCash)
         WalletCard1.Controls.Add(CashHeading)
         WalletCard1.Location = New System.Drawing.Point(26, 67)
@@ -823,25 +789,28 @@ Partial Class MainForm
         ' AmtCash
         ' 
         AmtCash.AutoSize = True
+        AmtCash.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
         AmtCash.ForeColor = Drawing.SystemColors.ButtonFace
         AmtCash.Location = New System.Drawing.Point(63, 43)
         AmtCash.Name = "AmtCash"
-        AmtCash.Size = New System.Drawing.Size(49, 20)
+        AmtCash.Size = New System.Drawing.Size(72, 28)
         AmtCash.TabIndex = 13
         AmtCash.Text = "₱ 0.00"
         ' 
         ' CashHeading
         ' 
         CashHeading.AutoSize = True
+        CashHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         CashHeading.ForeColor = Drawing.SystemColors.ButtonFace
         CashHeading.Location = New System.Drawing.Point(63, 23)
         CashHeading.Name = "CashHeading"
-        CashHeading.Size = New System.Drawing.Size(40, 20)
+        CashHeading.Size = New System.Drawing.Size(42, 20)
         CashHeading.TabIndex = 12
         CashHeading.Text = "Cash"
         ' 
         ' AddAccBtn
         ' 
+        AddAccBtn.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         AddAccBtn.Location = New System.Drawing.Point(637, 14)
         AddAccBtn.Name = "AddAccBtn"
         AddAccBtn.Size = New System.Drawing.Size(142, 38)
@@ -851,6 +820,7 @@ Partial Class MainForm
         ' 
         ' TransferBtn
         ' 
+        TransferBtn.Font = New System.Drawing.Font("Verdana", 10.8F)
         TransferBtn.Location = New System.Drawing.Point(463, 14)
         TransferBtn.Name = "TransferBtn"
         TransferBtn.Size = New System.Drawing.Size(142, 38)
@@ -868,25 +838,28 @@ Partial Class MainForm
         ' WalletsHeading
         ' 
         WalletsHeading.AutoSize = True
+        WalletsHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         WalletsHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        WalletsHeading.Location = New System.Drawing.Point(75, 21)
+        WalletsHeading.Location = New System.Drawing.Point(75, 19)
         WalletsHeading.Name = "WalletsHeading"
-        WalletsHeading.Size = New System.Drawing.Size(150, 20)
+        WalletsHeading.Size = New System.Drawing.Size(254, 25)
         WalletsHeading.TabIndex = 6
         WalletsHeading.Text = "Wallets and Accounts"
         ' 
         ' SectionLabel
         ' 
         SectionLabel.AutoSize = True
-        SectionLabel.ForeColor = Drawing.SystemColors.ButtonFace
-        SectionLabel.Location = New System.Drawing.Point(42, 146)
+        SectionLabel.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        SectionLabel.ForeColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
+        SectionLabel.Location = New System.Drawing.Point(38, 121)
         SectionLabel.Name = "SectionLabel"
-        SectionLabel.Size = New System.Drawing.Size(165, 20)
+        SectionLabel.Size = New System.Drawing.Size(256, 22)
         SectionLabel.TabIndex = 1
         SectionLabel.Text = "Your Financial Overview"
         ' 
         ' MBLPnl
         ' 
+        MBLPnl.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLPnl.Controls.Add(MBLCardPanel6)
         MBLPnl.Controls.Add(MBLCardPanel8)
         MBLPnl.Controls.Add(MBLCardPanel3)
@@ -905,6 +878,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel6
         ' 
+        MBLCardPanel6.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel6.Controls.Add(ProgressHealth)
         MBLCardPanel6.Controls.Add(UsedHealth)
         MBLCardPanel6.Controls.Add(AmtLeftHealth)
@@ -958,10 +932,11 @@ Partial Class MainForm
         ' MBLHealth
         ' 
         MBLHealth.AutoSize = True
+        MBLHealth.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLHealth.ForeColor = Drawing.SystemColors.ButtonFace
         MBLHealth.Location = New System.Drawing.Point(40, 10)
         MBLHealth.Name = "MBLHealth"
-        MBLHealth.Size = New System.Drawing.Size(53, 20)
+        MBLHealth.Size = New System.Drawing.Size(55, 20)
         MBLHealth.TabIndex = 54
         MBLHealth.Text = "Health"
         ' 
@@ -994,6 +969,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel8
         ' 
+        MBLCardPanel8.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel8.Controls.Add(ProgressMisc)
         MBLCardPanel8.Controls.Add(UsedMisc)
         MBLCardPanel8.Controls.Add(AmtLeftMisc)
@@ -1067,10 +1043,11 @@ Partial Class MainForm
         ' MBLMiscellaneous
         ' 
         MBLMiscellaneous.AutoSize = True
+        MBLMiscellaneous.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLMiscellaneous.ForeColor = Drawing.SystemColors.ButtonFace
         MBLMiscellaneous.Location = New System.Drawing.Point(39, 9)
         MBLMiscellaneous.Name = "MBLMiscellaneous"
-        MBLMiscellaneous.Size = New System.Drawing.Size(102, 20)
+        MBLMiscellaneous.Size = New System.Drawing.Size(107, 20)
         MBLMiscellaneous.TabIndex = 57
         MBLMiscellaneous.Text = "Miscellaneous"
         ' 
@@ -1083,6 +1060,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel3
         ' 
+        MBLCardPanel3.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel3.Controls.Add(ProgressTranspo)
         MBLCardPanel3.Controls.Add(UsedTranspo)
         MBLCardPanel3.Controls.Add(AmtLeftTranspo)
@@ -1156,10 +1134,11 @@ Partial Class MainForm
         ' MBLTransportation
         ' 
         MBLTransportation.AutoSize = True
+        MBLTransportation.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLTransportation.ForeColor = Drawing.SystemColors.ButtonFace
         MBLTransportation.Location = New System.Drawing.Point(43, 10)
         MBLTransportation.Name = "MBLTransportation"
-        MBLTransportation.Size = New System.Drawing.Size(105, 20)
+        MBLTransportation.Size = New System.Drawing.Size(113, 20)
         MBLTransportation.TabIndex = 53
         MBLTransportation.Text = "Transportation"
         ' 
@@ -1172,6 +1151,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel7
         ' 
+        MBLCardPanel7.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel7.Controls.Add(ProgressShop)
         MBLCardPanel7.Controls.Add(UsedShop)
         MBLCardPanel7.Controls.Add(AmtLeftShop)
@@ -1245,10 +1225,11 @@ Partial Class MainForm
         ' MBLShopping
         ' 
         MBLShopping.AutoSize = True
+        MBLShopping.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLShopping.ForeColor = Drawing.SystemColors.ButtonFace
         MBLShopping.Location = New System.Drawing.Point(39, 10)
         MBLShopping.Name = "MBLShopping"
-        MBLShopping.Size = New System.Drawing.Size(73, 20)
+        MBLShopping.Size = New System.Drawing.Size(75, 20)
         MBLShopping.TabIndex = 56
         MBLShopping.Text = "Shopping"
         ' 
@@ -1261,6 +1242,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel5
         ' 
+        MBLCardPanel5.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel5.Controls.Add(ProgressEnt)
         MBLCardPanel5.Controls.Add(UsedEnt)
         MBLCardPanel5.Controls.Add(AmtLeftEnt)
@@ -1334,10 +1316,11 @@ Partial Class MainForm
         ' MBLEntertainment
         ' 
         MBLEntertainment.AutoSize = True
+        MBLEntertainment.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLEntertainment.ForeColor = Drawing.SystemColors.ButtonFace
         MBLEntertainment.Location = New System.Drawing.Point(40, 9)
         MBLEntertainment.Name = "MBLEntertainment"
-        MBLEntertainment.Size = New System.Drawing.Size(102, 20)
+        MBLEntertainment.Size = New System.Drawing.Size(110, 20)
         MBLEntertainment.TabIndex = 56
         MBLEntertainment.Text = "Entertainment"
         ' 
@@ -1350,6 +1333,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel4
         ' 
+        MBLCardPanel4.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel4.Controls.Add(ProgressUtil)
         MBLCardPanel4.Controls.Add(UsedUtil)
         MBLCardPanel4.Controls.Add(AmtLeftUtil)
@@ -1423,10 +1407,11 @@ Partial Class MainForm
         ' MBLUtilities
         ' 
         MBLUtilities.AutoSize = True
+        MBLUtilities.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLUtilities.ForeColor = Drawing.SystemColors.ButtonFace
         MBLUtilities.Location = New System.Drawing.Point(40, 10)
         MBLUtilities.Name = "MBLUtilities"
-        MBLUtilities.Size = New System.Drawing.Size(59, 20)
+        MBLUtilities.Size = New System.Drawing.Size(63, 20)
         MBLUtilities.TabIndex = 55
         MBLUtilities.Text = "Utilities"
         ' 
@@ -1439,6 +1424,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel2
         ' 
+        MBLCardPanel2.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel2.Controls.Add(ProgressFood)
         MBLCardPanel2.Controls.Add(UsedFood)
         MBLCardPanel2.Controls.Add(AmtLeftFood)
@@ -1512,10 +1498,11 @@ Partial Class MainForm
         ' MBLFood
         ' 
         MBLFood.AutoSize = True
+        MBLFood.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLFood.ForeColor = Drawing.SystemColors.ButtonFace
         MBLFood.Location = New System.Drawing.Point(43, 9)
         MBLFood.Name = "MBLFood"
-        MBLFood.Size = New System.Drawing.Size(43, 20)
+        MBLFood.Size = New System.Drawing.Size(44, 20)
         MBLFood.TabIndex = 58
         MBLFood.Text = "Food"
         ' 
@@ -1528,6 +1515,7 @@ Partial Class MainForm
         ' 
         ' MBLCardPanel1
         ' 
+        MBLCardPanel1.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         MBLCardPanel1.Controls.Add(ProgressHousing)
         MBLCardPanel1.Controls.Add(UsedHousing)
         MBLCardPanel1.Controls.Add(AmtLeftHousing)
@@ -1601,10 +1589,11 @@ Partial Class MainForm
         ' MBLHousing
         ' 
         MBLHousing.AutoSize = True
+        MBLHousing.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
         MBLHousing.ForeColor = Drawing.SystemColors.ButtonFace
         MBLHousing.Location = New System.Drawing.Point(43, 11)
         MBLHousing.Name = "MBLHousing"
-        MBLHousing.Size = New System.Drawing.Size(64, 20)
+        MBLHousing.Size = New System.Drawing.Size(67, 20)
         MBLHousing.TabIndex = 13
         MBLHousing.Text = "Housing"
         ' 
@@ -1617,6 +1606,7 @@ Partial Class MainForm
         ' 
         ' Button1
         ' 
+        Button1.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         Button1.Location = New System.Drawing.Point(1219, 16)
         Button1.Name = "Button1"
         Button1.Size = New System.Drawing.Size(186, 38)
@@ -1634,15 +1624,17 @@ Partial Class MainForm
         ' WalAndAcc
         ' 
         WalAndAcc.AutoSize = True
+        WalAndAcc.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         WalAndAcc.ForeColor = Drawing.SystemColors.ButtonFace
-        WalAndAcc.Location = New System.Drawing.Point(75, 20)
+        WalAndAcc.Location = New System.Drawing.Point(75, 18)
         WalAndAcc.Name = "WalAndAcc"
-        WalAndAcc.Size = New System.Drawing.Size(150, 20)
+        WalAndAcc.Size = New System.Drawing.Size(250, 25)
         WalAndAcc.TabIndex = 0
         WalAndAcc.Text = "Montly Budget Limits"
         ' 
         ' TotExpBG
         ' 
+        TotExpBG.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         TotExpBG.Controls.Add(TotExpLbl)
         TotExpBG.Controls.Add(ExpAmt)
         TotExpBG.Controls.Add(ExpDesc)
@@ -1655,30 +1647,33 @@ Partial Class MainForm
         ' TotExpLbl
         ' 
         TotExpLbl.AutoSize = True
+        TotExpLbl.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         TotExpLbl.ForeColor = Drawing.SystemColors.ButtonFace
         TotExpLbl.Location = New System.Drawing.Point(20, 20)
         TotExpLbl.Name = "TotExpLbl"
-        TotExpLbl.Size = New System.Drawing.Size(106, 20)
+        TotExpLbl.Size = New System.Drawing.Size(181, 25)
         TotExpLbl.TabIndex = 0
         TotExpLbl.Text = "Total Expenses"
         ' 
         ' ExpAmt
         ' 
         ExpAmt.AutoSize = True
+        ExpAmt.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         ExpAmt.ForeColor = Drawing.SystemColors.ButtonFace
         ExpAmt.Location = New System.Drawing.Point(20, 53)
         ExpAmt.Name = "ExpAmt"
-        ExpAmt.Size = New System.Drawing.Size(45, 20)
+        ExpAmt.Size = New System.Drawing.Size(61, 28)
         ExpAmt.TabIndex = 1
         ExpAmt.Text = "₱0.00"
         ' 
         ' ExpDesc
         ' 
         ExpDesc.AutoSize = True
+        ExpDesc.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         ExpDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        ExpDesc.Location = New System.Drawing.Point(22, 107)
+        ExpDesc.Location = New System.Drawing.Point(22, 105)
         ExpDesc.Name = "ExpDesc"
-        ExpDesc.Size = New System.Drawing.Size(165, 20)
+        ExpDesc.Size = New System.Drawing.Size(255, 25)
         ExpDesc.TabIndex = 2
         ExpDesc.Text = "Income minus Expenses"
         ' 
@@ -1691,6 +1686,7 @@ Partial Class MainForm
         ' 
         ' NetBalBG
         ' 
+        NetBalBG.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         NetBalBG.Controls.Add(NetBal)
         NetBalBG.Controls.Add(AmtBal)
         NetBalBG.Controls.Add(BalDesc)
@@ -1703,30 +1699,33 @@ Partial Class MainForm
         ' NetBal
         ' 
         NetBal.AutoSize = True
+        NetBal.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         NetBal.ForeColor = Drawing.SystemColors.ButtonFace
         NetBal.Location = New System.Drawing.Point(20, 20)
         NetBal.Name = "NetBal"
-        NetBal.Size = New System.Drawing.Size(89, 20)
+        NetBal.Size = New System.Drawing.Size(145, 25)
         NetBal.TabIndex = 0
         NetBal.Text = "Net Balance"
         ' 
         ' AmtBal
         ' 
         AmtBal.AutoSize = True
+        AmtBal.Font = New System.Drawing.Font("Segoe UI", 12F)
         AmtBal.ForeColor = Drawing.SystemColors.ButtonFace
         AmtBal.Location = New System.Drawing.Point(20, 53)
         AmtBal.Name = "AmtBal"
-        AmtBal.Size = New System.Drawing.Size(45, 20)
+        AmtBal.Size = New System.Drawing.Size(61, 28)
         AmtBal.TabIndex = 1
         AmtBal.Text = "₱0.00"
         ' 
         ' BalDesc
         ' 
         BalDesc.AutoSize = True
+        BalDesc.Font = New System.Drawing.Font("Verdana", 12F)
         BalDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        BalDesc.Location = New System.Drawing.Point(22, 107)
+        BalDesc.Location = New System.Drawing.Point(22, 105)
         BalDesc.Name = "BalDesc"
-        BalDesc.Size = New System.Drawing.Size(165, 20)
+        BalDesc.Size = New System.Drawing.Size(255, 25)
         BalDesc.TabIndex = 2
         BalDesc.Text = "Income minus Expenses"
         ' 
@@ -1739,6 +1738,7 @@ Partial Class MainForm
         ' 
         ' SavRateBG
         ' 
+        SavRateBG.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         SavRateBG.Controls.Add(SavRate)
         SavRateBG.Controls.Add(SavRatePerc)
         SavRateBG.Controls.Add(SavRateDesc)
@@ -1751,30 +1751,33 @@ Partial Class MainForm
         ' SavRate
         ' 
         SavRate.AutoSize = True
+        SavRate.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         SavRate.ForeColor = Drawing.SystemColors.ButtonFace
         SavRate.Location = New System.Drawing.Point(20, 20)
         SavRate.Name = "SavRate"
-        SavRate.Size = New System.Drawing.Size(93, 20)
+        SavRate.Size = New System.Drawing.Size(157, 25)
         SavRate.TabIndex = 0
         SavRate.Text = "Savings Rate"
         ' 
         ' SavRatePerc
         ' 
         SavRatePerc.AutoSize = True
+        SavRatePerc.Font = New System.Drawing.Font("Segoe UI", 12F)
         SavRatePerc.ForeColor = Drawing.SystemColors.ButtonFace
         SavRatePerc.Location = New System.Drawing.Point(20, 53)
         SavRatePerc.Name = "SavRatePerc"
-        SavRatePerc.Size = New System.Drawing.Size(29, 20)
+        SavRatePerc.Size = New System.Drawing.Size(39, 28)
         SavRatePerc.TabIndex = 1
         SavRatePerc.Text = "0%"
         ' 
         ' SavRateDesc
         ' 
         SavRateDesc.AutoSize = True
+        SavRateDesc.Font = New System.Drawing.Font("Verdana", 12F)
         SavRateDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        SavRateDesc.Location = New System.Drawing.Point(22, 107)
+        SavRateDesc.Location = New System.Drawing.Point(22, 105)
         SavRateDesc.Name = "SavRateDesc"
-        SavRateDesc.Size = New System.Drawing.Size(180, 20)
+        SavRateDesc.Size = New System.Drawing.Size(272, 25)
         SavRateDesc.TabIndex = 2
         SavRateDesc.Text = "Of monthly income raised"
         ' 
@@ -1787,6 +1790,7 @@ Partial Class MainForm
         ' 
         ' CashFlowBG
         ' 
+        CashFlowBG.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         CashFlowBG.Controls.Add(ChartArea)
         CashFlowBG.Controls.Add(IncVSExpDesc)
         CashFlowBG.Controls.Add(CashFlowHistoryLabel)
@@ -1809,10 +1813,11 @@ Partial Class MainForm
         ' EmptyStateHeadingDesc
         ' 
         EmptyStateHeadingDesc.AutoSize = True
+        EmptyStateHeadingDesc.Font = New System.Drawing.Font("Verdana", 9F)
         EmptyStateHeadingDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptyStateHeadingDesc.Location = New System.Drawing.Point(183, 105)
+        EmptyStateHeadingDesc.Location = New System.Drawing.Point(165, 147)
         EmptyStateHeadingDesc.Name = "EmptyStateHeadingDesc"
-        EmptyStateHeadingDesc.Size = New System.Drawing.Size(269, 20)
+        EmptyStateHeadingDesc.Size = New System.Drawing.Size(304, 18)
         EmptyStateHeadingDesc.TabIndex = 15
         EmptyStateHeadingDesc.Text = "Add a transaction to see your cash flow"
         EmptyStateHeadingDesc.TextAlign = Drawing.ContentAlignment.MiddleCenter
@@ -1820,37 +1825,40 @@ Partial Class MainForm
         ' EmptyStateHeading
         ' 
         EmptyStateHeading.AutoSize = True
+        EmptyStateHeading.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         EmptyStateHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptyStateHeading.Location = New System.Drawing.Point(218, 85)
+        EmptyStateHeading.Location = New System.Drawing.Point(164, 123)
         EmptyStateHeading.Name = "EmptyStateHeading"
-        EmptyStateHeading.Size = New System.Drawing.Size(195, 20)
+        EmptyStateHeading.Size = New System.Drawing.Size(306, 22)
         EmptyStateHeading.TabIndex = 14
         EmptyStateHeading.Text = "Your money story starts here"
         ' 
         ' EmptyStateIcon
         ' 
-        EmptyStateIcon.Location = New System.Drawing.Point(297, 34)
+        EmptyStateIcon.Location = New System.Drawing.Point(279, 43)
         EmptyStateIcon.Name = "EmptyStateIcon"
-        EmptyStateIcon.Size = New System.Drawing.Size(35, 38)
+        EmptyStateIcon.Size = New System.Drawing.Size(67, 67)
         EmptyStateIcon.TabIndex = 5
         ' 
         ' IncVSExpDesc
         ' 
         IncVSExpDesc.AutoSize = True
+        IncVSExpDesc.Font = New System.Drawing.Font("Verdana", 10.2F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         IncVSExpDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        IncVSExpDesc.Location = New System.Drawing.Point(691, 27)
+        IncVSExpDesc.Location = New System.Drawing.Point(644, 27)
         IncVSExpDesc.Name = "IncVSExpDesc"
-        IncVSExpDesc.Size = New System.Drawing.Size(139, 20)
+        IncVSExpDesc.Size = New System.Drawing.Size(186, 20)
         IncVSExpDesc.TabIndex = 12
         IncVSExpDesc.Text = "Income vs Expenses"
         ' 
         ' CashFlowHistoryLabel
         ' 
         CashFlowHistoryLabel.AutoSize = True
+        CashFlowHistoryLabel.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         CashFlowHistoryLabel.ForeColor = Drawing.SystemColors.ButtonFace
-        CashFlowHistoryLabel.Location = New System.Drawing.Point(65, 27)
+        CashFlowHistoryLabel.Location = New System.Drawing.Point(65, 24)
         CashFlowHistoryLabel.Name = "CashFlowHistoryLabel"
-        CashFlowHistoryLabel.Size = New System.Drawing.Size(126, 20)
+        CashFlowHistoryLabel.Size = New System.Drawing.Size(215, 25)
         CashFlowHistoryLabel.TabIndex = 4
         CashFlowHistoryLabel.Text = "Cash Flow History"
         ' 
@@ -1863,6 +1871,7 @@ Partial Class MainForm
         ' 
         ' CardBG1
         ' 
+        CardBG1.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         CardBG1.Controls.Add(TotalIncome)
         CardBG1.Controls.Add(AmtIncome)
         CardBG1.Controls.Add(IncDesc)
@@ -1875,30 +1884,33 @@ Partial Class MainForm
         ' TotalIncome
         ' 
         TotalIncome.AutoSize = True
+        TotalIncome.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         TotalIncome.ForeColor = Drawing.SystemColors.ButtonFace
         TotalIncome.Location = New System.Drawing.Point(20, 20)
         TotalIncome.Name = "TotalIncome"
-        TotalIncome.Size = New System.Drawing.Size(95, 20)
+        TotalIncome.Size = New System.Drawing.Size(161, 25)
         TotalIncome.TabIndex = 0
         TotalIncome.Text = "Total Income"
         ' 
         ' AmtIncome
         ' 
         AmtIncome.AutoSize = True
+        AmtIncome.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         AmtIncome.ForeColor = Drawing.SystemColors.ButtonFace
         AmtIncome.Location = New System.Drawing.Point(20, 53)
         AmtIncome.Name = "AmtIncome"
-        AmtIncome.Size = New System.Drawing.Size(45, 20)
+        AmtIncome.Size = New System.Drawing.Size(61, 28)
         AmtIncome.TabIndex = 1
         AmtIncome.Text = "₱0.00"
         ' 
         ' IncDesc
         ' 
         IncDesc.AutoSize = True
+        IncDesc.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         IncDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        IncDesc.Location = New System.Drawing.Point(22, 107)
+        IncDesc.Location = New System.Drawing.Point(22, 105)
         IncDesc.Name = "IncDesc"
-        IncDesc.Size = New System.Drawing.Size(132, 20)
+        IncDesc.Size = New System.Drawing.Size(202, 25)
         IncDesc.TabIndex = 2
         IncDesc.Text = "Income this month"
         ' 
@@ -1911,6 +1923,7 @@ Partial Class MainForm
         ' 
         ' ExpBDBG
         ' 
+        ExpBDBG.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
         ExpBDBG.Controls.Add(Perc8)
         ExpBDBG.Controls.Add(Perc7)
         ExpBDBG.Controls.Add(ExpBDHeading)
@@ -1946,36 +1959,39 @@ Partial Class MainForm
         ' Perc8
         ' 
         Perc8.AutoSize = True
+        Perc8.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc8.ForeColor = Drawing.SystemColors.ButtonFace
         Perc8.Location = New System.Drawing.Point(476, 238)
         Perc8.Name = "Perc8"
-        Perc8.Size = New System.Drawing.Size(29, 20)
+        Perc8.Size = New System.Drawing.Size(39, 28)
         Perc8.TabIndex = 65
         Perc8.Text = "0%"
         ' 
         ' Perc7
         ' 
         Perc7.AutoSize = True
+        Perc7.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc7.ForeColor = Drawing.SystemColors.ButtonFace
-        Perc7.Location = New System.Drawing.Point(476, 218)
+        Perc7.Location = New System.Drawing.Point(476, 214)
         Perc7.Name = "Perc7"
-        Perc7.Size = New System.Drawing.Size(29, 20)
+        Perc7.Size = New System.Drawing.Size(39, 28)
         Perc7.TabIndex = 64
         Perc7.Text = "0%"
         ' 
         ' ExpBDHeading
         ' 
         ExpBDHeading.AutoSize = True
+        ExpBDHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         ExpBDHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        ExpBDHeading.Location = New System.Drawing.Point(98, 67)
+        ExpBDHeading.Location = New System.Drawing.Point(67, 29)
         ExpBDHeading.Name = "ExpBDHeading"
-        ExpBDHeading.Size = New System.Drawing.Size(141, 20)
+        ExpBDHeading.Size = New System.Drawing.Size(238, 25)
         ExpBDHeading.TabIndex = 41
         ExpBDHeading.Text = "Expense Breakdown"
         ' 
         ' ExpBdIcon
         ' 
-        ExpBdIcon.Location = New System.Drawing.Point(54, 60)
+        ExpBdIcon.Location = New System.Drawing.Point(23, 24)
         ExpBdIcon.Name = "ExpBdIcon"
         ExpBdIcon.Size = New System.Drawing.Size(35, 38)
         ExpBdIcon.TabIndex = 40
@@ -1984,9 +2000,9 @@ Partial Class MainForm
         ' 
         DonutChartArea.Controls.Add(DonutChartAmt)
         DonutChartArea.Controls.Add(DonutChartDesc)
-        DonutChartArea.Location = New System.Drawing.Point(74, 112)
+        DonutChartArea.Location = New System.Drawing.Point(38, 84)
         DonutChartArea.Name = "DonutChartArea"
-        DonutChartArea.Size = New System.Drawing.Size(144, 141)
+        DonutChartArea.Size = New System.Drawing.Size(182, 182)
         DonutChartArea.TabIndex = 42
         ' 
         ' DonutChartAmt
@@ -2013,42 +2029,42 @@ Partial Class MainForm
         ' 
         ' ColorLegend1
         ' 
-        ColorLegend1.Location = New System.Drawing.Point(257, 109)
+        ColorLegend1.Location = New System.Drawing.Point(257, 84)
         ColorLegend1.Name = "ColorLegend1"
         ColorLegend1.Size = New System.Drawing.Size(13, 13)
         ColorLegend1.TabIndex = 43
         ' 
         ' color2
         ' 
-        color2.Location = New System.Drawing.Point(257, 128)
+        color2.Location = New System.Drawing.Point(257, 106)
         color2.Name = "color2"
         color2.Size = New System.Drawing.Size(13, 13)
         color2.TabIndex = 44
         ' 
         ' color3
         ' 
-        color3.Location = New System.Drawing.Point(257, 147)
+        color3.Location = New System.Drawing.Point(257, 129)
         color3.Name = "color3"
         color3.Size = New System.Drawing.Size(13, 13)
         color3.TabIndex = 45
         ' 
         ' color4
         ' 
-        color4.Location = New System.Drawing.Point(257, 166)
+        color4.Location = New System.Drawing.Point(257, 151)
         color4.Name = "color4"
         color4.Size = New System.Drawing.Size(13, 13)
         color4.TabIndex = 46
         ' 
         ' color5
         ' 
-        color5.Location = New System.Drawing.Point(257, 185)
+        color5.Location = New System.Drawing.Point(257, 175)
         color5.Name = "color5"
         color5.Size = New System.Drawing.Size(13, 13)
         color5.TabIndex = 47
         ' 
         ' color6
         ' 
-        color6.Location = New System.Drawing.Point(257, 204)
+        color6.Location = New System.Drawing.Point(257, 199)
         color6.Name = "color6"
         color6.Size = New System.Drawing.Size(13, 13)
         color6.TabIndex = 48
@@ -2062,7 +2078,7 @@ Partial Class MainForm
         ' 
         ' color8
         ' 
-        color8.Location = New System.Drawing.Point(257, 242)
+        color8.Location = New System.Drawing.Point(257, 247)
         color8.Name = "color8"
         color8.Size = New System.Drawing.Size(13, 13)
         color8.TabIndex = 50
@@ -2070,146 +2086,266 @@ Partial Class MainForm
         ' Housing
         ' 
         Housing.AutoSize = True
+        Housing.Font = New System.Drawing.Font("Segoe UI", 12F)
         Housing.ForeColor = Drawing.SystemColors.ButtonFace
-        Housing.Location = New System.Drawing.Point(274, 105)
+        Housing.Location = New System.Drawing.Point(274, 74)
         Housing.Name = "Housing"
-        Housing.Size = New System.Drawing.Size(64, 20)
+        Housing.Size = New System.Drawing.Size(85, 28)
         Housing.TabIndex = 51
         Housing.Text = "Housing"
         ' 
         ' Food
         ' 
         Food.AutoSize = True
+        Food.Font = New System.Drawing.Font("Segoe UI", 12F)
         Food.ForeColor = Drawing.SystemColors.ButtonFace
-        Food.Location = New System.Drawing.Point(274, 124)
+        Food.Location = New System.Drawing.Point(274, 96)
         Food.Name = "Food"
-        Food.Size = New System.Drawing.Size(43, 20)
+        Food.Size = New System.Drawing.Size(58, 28)
         Food.TabIndex = 52
         Food.Text = "Food"
         ' 
         ' Transportation
         ' 
         Transportation.AutoSize = True
+        Transportation.Font = New System.Drawing.Font("Segoe UI", 12F)
         Transportation.ForeColor = Drawing.SystemColors.ButtonFace
-        Transportation.Location = New System.Drawing.Point(274, 143)
+        Transportation.Location = New System.Drawing.Point(274, 119)
         Transportation.Name = "Transportation"
-        Transportation.Size = New System.Drawing.Size(105, 20)
+        Transportation.Size = New System.Drawing.Size(139, 28)
         Transportation.TabIndex = 53
         Transportation.Text = "Transportation"
         ' 
         ' Utilities
         ' 
         Utilities.AutoSize = True
+        Utilities.Font = New System.Drawing.Font("Segoe UI", 12F)
         Utilities.ForeColor = Drawing.SystemColors.ButtonFace
-        Utilities.Location = New System.Drawing.Point(274, 162)
+        Utilities.Location = New System.Drawing.Point(274, 142)
         Utilities.Name = "Utilities"
-        Utilities.Size = New System.Drawing.Size(59, 20)
+        Utilities.Size = New System.Drawing.Size(78, 28)
         Utilities.TabIndex = 54
         Utilities.Text = "Utilities"
         ' 
         ' Entertainment
         ' 
         Entertainment.AutoSize = True
+        Entertainment.Font = New System.Drawing.Font("Segoe UI", 12F)
         Entertainment.ForeColor = Drawing.SystemColors.ButtonFace
-        Entertainment.Location = New System.Drawing.Point(274, 181)
+        Entertainment.Location = New System.Drawing.Point(274, 165)
         Entertainment.Name = "Entertainment"
-        Entertainment.Size = New System.Drawing.Size(102, 20)
+        Entertainment.Size = New System.Drawing.Size(135, 28)
         Entertainment.TabIndex = 55
         Entertainment.Text = "Entertainment"
         ' 
         ' Shopping
         ' 
         Shopping.AutoSize = True
+        Shopping.Font = New System.Drawing.Font("Segoe UI", 12F)
         Shopping.ForeColor = Drawing.SystemColors.ButtonFace
-        Shopping.Location = New System.Drawing.Point(274, 219)
+        Shopping.Location = New System.Drawing.Point(274, 214)
         Shopping.Name = "Shopping"
-        Shopping.Size = New System.Drawing.Size(73, 20)
+        Shopping.Size = New System.Drawing.Size(98, 28)
         Shopping.TabIndex = 57
         Shopping.Text = "Shopping"
         ' 
         ' Perc5
         ' 
         Perc5.AutoSize = True
+        Perc5.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc5.ForeColor = Drawing.SystemColors.ButtonFace
-        Perc5.Location = New System.Drawing.Point(476, 179)
+        Perc5.Location = New System.Drawing.Point(476, 165)
         Perc5.Name = "Perc5"
-        Perc5.Size = New System.Drawing.Size(29, 20)
+        Perc5.Size = New System.Drawing.Size(39, 28)
         Perc5.TabIndex = 62
         Perc5.Text = "0%"
         ' 
         ' Miscellaneous
         ' 
         Miscellaneous.AutoSize = True
+        Miscellaneous.Font = New System.Drawing.Font("Segoe UI", 12F)
         Miscellaneous.ForeColor = Drawing.SystemColors.ButtonFace
         Miscellaneous.Location = New System.Drawing.Point(274, 238)
         Miscellaneous.Name = "Miscellaneous"
-        Miscellaneous.Size = New System.Drawing.Size(102, 20)
+        Miscellaneous.Size = New System.Drawing.Size(134, 28)
         Miscellaneous.TabIndex = 58
         Miscellaneous.Text = "Miscellaneous"
         ' 
         ' Health
         ' 
         Health.AutoSize = True
+        Health.Font = New System.Drawing.Font("Segoe UI", 12F)
         Health.ForeColor = Drawing.SystemColors.ButtonFace
-        Health.Location = New System.Drawing.Point(274, 200)
+        Health.Location = New System.Drawing.Point(274, 190)
         Health.Name = "Health"
-        Health.Size = New System.Drawing.Size(53, 20)
+        Health.Size = New System.Drawing.Size(69, 28)
         Health.TabIndex = 56
         Health.Text = "Health"
         ' 
         ' Perc1
         ' 
         Perc1.AutoSize = True
+        Perc1.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc1.ForeColor = Drawing.SystemColors.ButtonFace
-        Perc1.Location = New System.Drawing.Point(476, 105)
+        Perc1.Location = New System.Drawing.Point(476, 74)
         Perc1.Name = "Perc1"
-        Perc1.Size = New System.Drawing.Size(29, 20)
+        Perc1.Size = New System.Drawing.Size(39, 28)
         Perc1.TabIndex = 39
         Perc1.Text = "0%"
         ' 
         ' Perc2
         ' 
         Perc2.AutoSize = True
+        Perc2.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc2.ForeColor = Drawing.SystemColors.ButtonFace
-        Perc2.Location = New System.Drawing.Point(476, 124)
+        Perc2.Location = New System.Drawing.Point(476, 96)
         Perc2.Name = "Perc2"
-        Perc2.Size = New System.Drawing.Size(29, 20)
+        Perc2.Size = New System.Drawing.Size(39, 28)
         Perc2.TabIndex = 59
         Perc2.Text = "0%"
         ' 
         ' Perc3
         ' 
         Perc3.AutoSize = True
+        Perc3.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc3.ForeColor = Drawing.SystemColors.ButtonFace
-        Perc3.Location = New System.Drawing.Point(476, 143)
+        Perc3.Location = New System.Drawing.Point(476, 119)
         Perc3.Name = "Perc3"
-        Perc3.Size = New System.Drawing.Size(29, 20)
+        Perc3.Size = New System.Drawing.Size(39, 28)
         Perc3.TabIndex = 60
         Perc3.Text = "0%"
         ' 
         ' Perc6
         ' 
         Perc6.AutoSize = True
+        Perc6.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc6.ForeColor = Drawing.SystemColors.ButtonFace
-        Perc6.Location = New System.Drawing.Point(476, 198)
+        Perc6.Location = New System.Drawing.Point(476, 190)
         Perc6.Name = "Perc6"
-        Perc6.Size = New System.Drawing.Size(29, 20)
+        Perc6.Size = New System.Drawing.Size(39, 28)
         Perc6.TabIndex = 63
         Perc6.Text = "0%"
         ' 
         ' Perc4
         ' 
         Perc4.AutoSize = True
+        Perc4.Font = New System.Drawing.Font("Segoe UI", 12F)
         Perc4.ForeColor = Drawing.SystemColors.ButtonFace
-        Perc4.Location = New System.Drawing.Point(476, 161)
+        Perc4.Location = New System.Drawing.Point(476, 142)
         Perc4.Name = "Perc4"
-        Perc4.Size = New System.Drawing.Size(29, 20)
+        Perc4.Size = New System.Drawing.Size(39, 28)
         Perc4.TabIndex = 61
         Perc4.Text = "0%"
         ' 
+        ' pnlHeader
+        ' 
+        pnlHeader.BackColor = Drawing.Color.FromArgb(CByte(27), CByte(39), CByte(59))
+        pnlHeader.Controls.Add(PictureBox1)
+        pnlHeader.Controls.Add(LogoMain)
+        pnlHeader.Controls.Add(PesoLogo)
+        pnlHeader.Controls.Add(BudgetMateTitle)
+        pnlHeader.Controls.Add(Tagline)
+        pnlHeader.Controls.Add(ToggleTheme)
+        pnlHeader.Controls.Add(DataDropdown)
+        pnlHeader.Controls.Add(AddTransaction)
+        pnlHeader.Dock = DockStyle.Top
+        pnlHeader.Location = New System.Drawing.Point(20, 20)
+        pnlHeader.Name = "pnlHeader"
+        pnlHeader.Size = New System.Drawing.Size(1855, 90)
+        pnlHeader.TabIndex = 0
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Drawing.Color.Transparent
+        PictureBox1.Image = My.Resources.Resources.PesoMint
+        PictureBox1.Location = New System.Drawing.Point(89, -54)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New System.Drawing.Size(380, 190)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 20
+        PictureBox1.TabStop = False
+        ' 
+        ' LogoMain
+        ' 
+        LogoMain.BorderStyle = BorderStyle.FixedSingle
+        LogoMain.Image = CType(resources.GetObject("LogoMain.Image"), Drawing.Image)
+        LogoMain.Location = New System.Drawing.Point(7, 7)
+        LogoMain.Name = "LogoMain"
+        LogoMain.Size = New System.Drawing.Size(76, 76)
+        LogoMain.SizeMode = PictureBoxSizeMode.StretchImage
+        LogoMain.TabIndex = 19
+        LogoMain.TabStop = False
+        ' 
+        ' PesoLogo
+        ' 
+        PesoLogo.AutoSize = True
+        PesoLogo.BackColor = Drawing.Color.FromArgb(CByte(0), CByte(192), CByte(0))
+        PesoLogo.Font = New System.Drawing.Font("Segoe UI", 18F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        PesoLogo.ForeColor = Drawing.Color.White
+        PesoLogo.Location = New System.Drawing.Point(23, 26)
+        PesoLogo.Name = "PesoLogo"
+        PesoLogo.Size = New System.Drawing.Size(37, 41)
+        PesoLogo.TabIndex = 1
+        PesoLogo.Text = "₱"
+        ' 
+        ' BudgetMateTitle
+        ' 
+        BudgetMateTitle.AutoSize = True
+        BudgetMateTitle.BackColor = Drawing.Color.Transparent
+        BudgetMateTitle.Font = New System.Drawing.Font("Copperplate Gothic Light", 24F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        BudgetMateTitle.ForeColor = Drawing.SystemColors.ButtonFace
+        BudgetMateTitle.Location = New System.Drawing.Point(98, 15)
+        BudgetMateTitle.Name = "BudgetMateTitle"
+        BudgetMateTitle.Size = New System.Drawing.Size(224, 43)
+        BudgetMateTitle.TabIndex = 1
+        BudgetMateTitle.Text = "PesoMint"
+        ' 
+        ' Tagline
+        ' 
+        Tagline.AutoSize = True
+        Tagline.ForeColor = Drawing.SystemColors.ButtonFace
+        Tagline.Location = New System.Drawing.Point(109, 53)
+        Tagline.Name = "Tagline"
+        Tagline.Size = New System.Drawing.Size(187, 20)
+        Tagline.TabIndex = 2
+        Tagline.Text = "Your finances, made easier."
+        ' 
+        ' ToggleTheme
+        ' 
+        ToggleTheme.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        ToggleTheme.BackgroundImageLayout = ImageLayout.None
+        ToggleTheme.Image = CType(resources.GetObject("ToggleTheme.Image"), Drawing.Image)
+        ToggleTheme.Location = New System.Drawing.Point(1445, 13)
+        ToggleTheme.Name = "ToggleTheme"
+        ToggleTheme.Size = New System.Drawing.Size(65, 63)
+        ToggleTheme.TabIndex = 1
+        ToggleTheme.UseVisualStyleBackColor = True
+        ' 
+        ' DataDropdown
+        ' 
+        DataDropdown.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        DataDropdown.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        DataDropdown.FormattingEnabled = True
+        DataDropdown.Location = New System.Drawing.Point(1526, 30)
+        DataDropdown.Name = "DataDropdown"
+        DataDropdown.Size = New System.Drawing.Size(130, 30)
+        DataDropdown.TabIndex = 1
+        DataDropdown.Text = "Data"
+        ' 
+        ' AddTransaction
+        ' 
+        AddTransaction.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        AddTransaction.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        AddTransaction.Location = New System.Drawing.Point(1674, 24)
+        AddTransaction.Name = "AddTransaction"
+        AddTransaction.Size = New System.Drawing.Size(153, 41)
+        AddTransaction.TabIndex = 3
+        AddTransaction.Text = "+ Add Transaction"
+        AddTransaction.UseVisualStyleBackColor = True
+        ' 
         ' MainForm
         ' 
-        AutoScaleDimensions = New System.Drawing.SizeF(120.0F, 120.0F)
+        AutoScaleDimensions = New System.Drawing.SizeF(120F, 120F)
         AutoScaleMode = AutoScaleMode.Dpi
         BackColor = Drawing.Color.FromArgb(CByte(16), CByte(24), CByte(39))
         ClientSize = New System.Drawing.Size(1895, 1055)
@@ -2217,11 +2353,9 @@ Partial Class MainForm
         MinimumSize = New System.Drawing.Size(1000, 700)
         Name = "MainForm"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "BudgetMate"
+        Text = "PesoMint"
         WindowState = FormWindowState.Maximized
         pnlDashboard.ResumeLayout(False)
-        pnlHeader.ResumeLayout(False)
-        pnlHeader.PerformLayout()
         PnlContent.ResumeLayout(False)
         PnlContent.PerformLayout()
         TransHistoryPnl.ResumeLayout(False)
@@ -2276,6 +2410,10 @@ Partial Class MainForm
         ExpBDBG.PerformLayout()
         DonutChartArea.ResumeLayout(False)
         DonutChartArea.PerformLayout()
+        pnlHeader.ResumeLayout(False)
+        pnlHeader.PerformLayout()
+        CType(PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(LogoMain, System.ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -2475,4 +2613,6 @@ Partial Class MainForm
     Friend WithEvents AddTransButton As Button
     Friend WithEvents EmptyTransDesc As Label
     Friend WithEvents EmptyTransactionHeading As Label
+    Friend WithEvents LogoMain As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

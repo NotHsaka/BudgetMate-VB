@@ -93,6 +93,14 @@ Public Class Goal
     Public Property Deadline As String = ""
 End Class
 
+Public Class GoalActivity
+    Public Property Id As String = NewId()
+    Public Property GoalId As String = ""
+    Public Property Type As String = "contribution" ' contribution / withdrawal
+    Public Property Amount As Decimal = 0D
+    Public Property [Date] As String = DateText(Date.Today)
+End Class
+
 Public Class Transfer
     Public Property Id As String = NewId()
     Public Property FromId As String = ""
@@ -120,6 +128,7 @@ Public Class AppData
     Public Property Transactions As List(Of Txn) = New List(Of Txn)()
     Public Property Limits As Dictionary(Of String, Decimal) = New Dictionary(Of String, Decimal)()
     Public Property Goals As List(Of Goal) = New List(Of Goal)()
+    Public Property GoalActivities As List(Of GoalActivity) = New List(Of GoalActivity)()
     Public Property RecurringRules As List(Of RecurringRule) = New List(Of RecurringRule)()
     Public Property Wallets As List(Of Wallet) = New List(Of Wallet)()
     Public Property Transfers As List(Of Transfer) = New List(Of Transfer)()

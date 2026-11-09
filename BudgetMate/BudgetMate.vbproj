@@ -1,49 +1,86 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
-    <RootNamespace>BudgetMate</RootNamespace>
-    <AssemblyName>BudgetMate</AssemblyName>
-    <MyType>WindowsFormsWithCustomSubMain</MyType>
-    <StartupObject>Sub Main</StartupObject>
-    <OptionExplicit>On</OptionExplicit>
-    <OptionStrict>On</OptionStrict>
-    <OptionInfer>On</OptionInfer>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
 
-  <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="26.10.0" />
-    <PackageReference Include="MySqlConnector" Version="2.6.2" />
-  </ItemGroup>
+		<RootNamespace>BudgetMate</RootNamespace>
+		<AssemblyName>BudgetMate</AssemblyName>
 
-  <ItemGroup>
-    <Compile Update="My Project\Resources.Designer.vb">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+		<MyType>WindowsFormsWithCustomSubMain</MyType>
+		<StartupObject>Sub Main</StartupObject>
 
-  <ItemGroup>
-    <EmbeddedResource Update="My Project\Resources.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+		<OptionExplicit>On</OptionExplicit>
+		<OptionStrict>On</OptionStrict>
+		<OptionInfer>On</OptionInfer>
 
-  <ItemGroup>
-    <Compile Update="SignUpForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="SignUpForm.Designer.vb">
-      <DependentUpon>SignUpForm.vb</DependentUpon>
-    </Compile>
-    <EmbeddedResource Update="SignUpForm.resx">
-      <DependentUpon>SignUpForm.vb</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+		<EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+		<EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+		<EnableDefaultEmbeddedResourceItems>true</EnableDefaultEmbeddedResourceItems>
+	</PropertyGroup>
 
+	<!-- Database dependencies -->
+	<ItemGroup>
+		<PackageReference Include="MySql.Data" Version="26.10.0" />
+		<PackageReference Include="MySqlConnector" Version="2.6.2" />
+	</ItemGroup>
+
+	<!-- Application resources -->
+	<ItemGroup>
+		<Compile Update="My Project\Resources.Designer.vb">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+
+		<EmbeddedResource Update="My Project\Resources.resx">
+			<CustomToolNamespace>My.Resources</CustomToolNamespace>
+			<Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.vb</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<!-- Sign up form -->
+	<ItemGroup>
+		<Compile Update="SignUpForm.vb">
+			<SubType>Form</SubType>
+		</Compile>
+
+		<Compile Update="SignUpForm.Designer.vb">
+			<DependentUpon>SignUpForm.vb</DependentUpon>
+		</Compile>
+
+		<EmbeddedResource Update="SignUpForm.resx">
+			<DependentUpon>SignUpForm.vb</DependentUpon>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<!-- Main form backend modules -->
+	<ItemGroup>
+		<Compile Update="MainForm.Refresh.vb">
+			<SubType>Code</SubType>
+		</Compile>
+
+		<Compile Update="MainForm.Theme.vb">
+			<SubType>Code</SubType>
+		</Compile>
+
+		<Compile Update="MainForm.Recurring.vb">
+			<SubType>Code</SubType>
+		</Compile>
+
+		<Compile Update="MainForm.SavingsGoals.vb">
+			<SubType>Code</SubType>
+		</Compile>
+
+		<Compile Update="MainForm.Wallets.vb">
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Remove="MainForm.Refresh.resx" />
+	</ItemGroup>
+	
 </Project>

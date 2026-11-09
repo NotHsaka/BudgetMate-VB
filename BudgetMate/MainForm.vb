@@ -13,9 +13,23 @@ Public Class MainForm
         InitializeComponent()
     End Sub
 
+    ' PART 1: the Budget object owns all the data and math; every screen part reads from it.
+    Private _budget As Budget
+
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BuildCenteredLayout()
-        DatabaseTest.TestConnection()
+        InitWallets()
+        InitHistory()             ' PART 4
+
+        _budget = New Budget()
+        InitSavingsGoals()
+        AddHandler _budget.Changed, AddressOf RefreshAll
+        RefreshAll()
+        ApplyCurrentTheme()
+
+        If _budget.LoadNotice.Length > 0 Then
+            MessageBox.Show(Me, _budget.LoadNotice, "BudgetMate", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
     ' ------------------------------------------------------------------
@@ -113,12 +127,11 @@ Public Class MainForm
     Private Sub pnlHeader_Paint(sender As Object, e As System.Windows.Forms.PaintEventArgs) Handles pnlHeader.Paint
 
     End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Tagline.Click
+    Private Sub Perc2_Click(sender As Object, e As EventArgs) Handles Perc2.Click
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles NextMonth.Click
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Tagline.Click
 
     End Sub
 

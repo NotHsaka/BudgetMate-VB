@@ -102,4 +102,15 @@ Public Class SignUpForm
         Close()
     End Sub
 
+    Private Sub lblLogo_Click(sender As Object, e As EventArgs) Handles lblLogo.Click
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles LogoPBSI.Click
+
+    End Sub
+
+    Private Sub lblSubtitle_Click(sender As Object, e As EventArgs) Handles lblSubtitle.Click
+
+    End Sub
 End Class

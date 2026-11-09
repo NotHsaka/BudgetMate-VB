@@ -117,8 +117,21 @@ Public NotInheritable Class DataStore
                 If g Is Nothing OrElse g.Target <= 0D Then Continue For
                 If String.IsNullOrWhiteSpace(g.Id) Then g.Id = NewId()
                 g.Name = If(g.Name, "")
-                g.Deadline = If(g.Deadline, "")
+                g.Saved = Math.Max(0D, g.Saved)
+                g.Deadline = If(IsValidDate(g.Deadline), g.Deadline, "")
                 result.Goals.Add(g)
+            Next
+        End If
+
+        If data.GoalActivities IsNot Nothing Then
+            For Each activity In data.GoalActivities
+                If activity Is Nothing OrElse activity.Amount <= 0D Then Continue For
+                If String.IsNullOrWhiteSpace(activity.GoalId) OrElse Not result.Goals.Any(Function(g) g.Id = activity.GoalId) Then Continue For
+                activity.Type = If(activity.Type, "contribution").ToLowerInvariant()
+                If activity.Type <> "contribution" AndAlso activity.Type <> "withdrawal" Then Continue For
+                If Not IsValidDate(activity.Date) Then activity.Date = DateText(Date.Today)
+                If String.IsNullOrWhiteSpace(activity.Id) Then activity.Id = NewId()
+                result.GoalActivities.Add(activity)
             Next
         End If
 
