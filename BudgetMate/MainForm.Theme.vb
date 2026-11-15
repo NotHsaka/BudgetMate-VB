@@ -1,9 +1,15 @@
 Imports System
+Imports System.Collections.Generic
 Imports System.Drawing
 Imports System.Windows.Forms
 
 ' Runtime palette application. It intentionally leaves custom icon artwork alone.
 Partial Class MainForm
+    ' Labels whose names contain "heading" or "month" would otherwise be dimmed by the rule below.
+    Private Shared ReadOnly SectionTitleNames As New HashSet(Of String)(New String() {
+        "viewmonth", "monthandyear", "expbdheading", "walletsheading", "savgoalsheading",
+        "rectranheading", "transactionhistoryheading"})
+
     Private Sub ToggleTheme_Click(sender As Object, e As EventArgs) Handles ToggleTheme.Click
         If _budget Is Nothing Then Return
         _budget.SetDarkTheme(Not Theme.IsDark)
@@ -37,7 +43,10 @@ Partial Class MainForm
                 c.ForeColor = Theme.ColInk
             ElseIf TypeOf c Is Label Then
                 Dim nm As String = c.Name.ToLowerInvariant()
-                If nm.Contains("desc") OrElse nm.Contains("heading") OrElse nm.Contains("month") OrElse nm.Contains("count") Then
+                If SectionTitleNames.Contains(nm) Then
+                    ' Card titles and the month picker text use the main text color in both themes.
+                    c.ForeColor = Theme.ColInk
+                ElseIf nm.Contains("desc") OrElse nm.Contains("heading") OrElse nm.Contains("month") OrElse nm.Contains("count") Then
                     c.ForeColor = Theme.ColMuted
                 Else
                     c.ForeColor = Theme.ColInk

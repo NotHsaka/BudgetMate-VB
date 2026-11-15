@@ -6,11 +6,20 @@ Imports System.Windows.Forms
 Public Class SignUpForm
 
     Public ReadOnly Property CreatedEmail As String = String.Empty
+    Public ReadOnly Property Outcome As AuthOutcome = AuthOutcome.Closed
+    Public ReadOnly Property EnteredEmail As String = String.Empty
+
+    Public Sub New(Optional prefillEmail As String = "")
+        InitializeComponent()
+        txtEmail.Text = prefillEmail
+        _EnteredEmail = prefillEmail
+    End Sub
 
     Private Async Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         Dim fullName As String = txtFullName.Text.Trim()
         Dim email As String = txtEmail.Text.Trim().ToLowerInvariant()
         Dim password As String = txtPassword.Text
+        _EnteredEmail = email
 
         Dim problem As String = CheckInputs(fullName, email, password, txtConfirm.Text)
         If problem.Length > 0 Then
@@ -29,14 +38,28 @@ Public Class SignUpForm
         If IsDisposed Then Return
         SetBusy(False)
 
+        If failure = UserStore.EmailTakenMessage Then
+            ' The account already exists, so offer the logical next step instead of a dead end.
+            Dim answer As DialogResult = MessageBox.Show(Me,
+                "There's already an account for " & email & "." & vbCrLf & vbCrLf & "Would you like to sign in instead?",
+                "Account already exists", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+            If answer = DialogResult.Yes Then
+                GoToSignIn()
+            Else
+                ShowError(failure)
+                txtEmail.Focus()
+            End If
+            Return
+        End If
         If failure.Length > 0 Then
             ShowError(failure)
             Return
         End If
 
+        ' A new account is signed in straight away.
         _CreatedEmail = email
-        MessageBox.Show(Me, "Your account has been created for " & email & ".", "Welcome to BudgetMate",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+        UserSession.SignIn(fullName, email)
+        _Outcome = AuthOutcome.SignedIn
         DialogResult = DialogResult.OK
         Close()
     End Sub
@@ -98,7 +121,21 @@ Public Class SignUpForm
     End Sub
 
     Private Sub linkSkip_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkSkip.LinkClicked
-        DialogResult = DialogResult.Cancel
+        UserSession.SignOut()
+        _Outcome = AuthOutcome.Guest
+        DialogResult = DialogResult.Ignore
+        Close()
+    End Sub
+
+    Private Sub linkSignIn_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkSignIn.LinkClicked
+        GoToSignIn()
+    End Sub
+
+    ' Back to the sign-in screen, carrying over whatever email was typed.
+    Private Sub GoToSignIn()
+        _EnteredEmail = txtEmail.Text.Trim().ToLowerInvariant()
+        _Outcome = AuthOutcome.SwitchScreen
+        DialogResult = DialogResult.Retry
         Close()
     End Sub
 

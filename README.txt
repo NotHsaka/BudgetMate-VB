@@ -20,4 +20,11 @@ BudgetMate\Models.vb             data classes and the category/payment lists
 BudgetMate\DataStore.vb          saving and loading (the only file that touches disk)
 BudgetMate\Program.vb            starts the app
 
-NOT INCLUDED (web only): Supabase login / cloud sync, and Print / Save PDF.
+SIGN IN / SIGN UP
+BudgetMate\LoginForm.vb       sign-in screen (opens first)
+BudgetMate\SignUpForm.vb      create-account screen
+BudgetMate\AuthFlow.vb        switches between the two screens
+BudgetMate\UserStore.vb       MySQL accounts: CreateUser, Authenticate (salted PBKDF2 hashes)
+BudgetMate\UserSession.vb     who is signed in (UserSession.FullName / Email)
+
+NOT INCLUDED (web only): Supabase cloud sync, and Print / Save PDF.

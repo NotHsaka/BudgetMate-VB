@@ -20,12 +20,21 @@ Public Class MainForm
         BuildCenteredLayout()
         InitWallets()
         InitHistory()             ' PART 4
+        InitDataMenu()            ' Data dropdown (export / import / reset)
+        InitAccountButton()       ' Log out / Sign in button
 
         _budget = New Budget()
         InitSavingsGoals()
         AddHandler _budget.Changed, AddressOf RefreshAll
         RefreshAll()
         ApplyCurrentTheme()
+        pnlHeader.BackColor = ToggleTheme.BackColor
+
+        With ToggleTheme
+            .FlatStyle = FlatStyle.Flat
+            .FlatAppearance.BorderSize = 0
+            .TabStop = False
+        End With
 
         If _budget.LoadNotice.Length > 0 Then
             MessageBox.Show(Me, _budget.LoadNotice, "BudgetMate", MessageBoxButtons.OK, MessageBoxIcon.Information)

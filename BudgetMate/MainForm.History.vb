@@ -134,9 +134,7 @@ Partial Class MainForm
         EmptyTransactionHeading.Visible = isEmpty
         EmptyTransDesc.Visible = isEmpty
         AddTransButton.Visible = (total = 0)
-        CenterInHistory(EmptyTransactionHeading)
-        CenterInHistory(EmptyTransDesc)
-        CenterInHistory(AddTransButton)
+        LayoutHistoryEmptyState()
 
         _historyList.BackColor = TransHistoryPnl.BackColor
         _historyList.Visible = Not isEmpty
@@ -155,8 +153,35 @@ Partial Class MainForm
         _canvas.Height = _stage.Height
     End Sub
 
-    Private Sub CenterInHistory(c As Control)
-        c.Left = (TransHistoryPnl.Width - c.GetPreferredSize(Size.Empty).Width) \ 2
+    ' Stacks the empty-state heading, description and button in one centered column,
+    ' centered horizontally in the card and vertically in the space under the filter row.
+    Private Sub LayoutHistoryEmptyState()
+        Dim k As Single = _scaleK
+        Dim items As New List(Of Control) From {EmptyTransactionHeading, EmptyTransDesc}
+        If AddTransButton.Visible Then items.Add(AddTransButton)
+
+        Dim gapTextToText As Integer = CInt(6 * k)
+        Dim gapTextToButton As Integer = CInt(18 * k)
+
+        Dim headH As Integer = EmptyTransactionHeading.GetPreferredSize(Size.Empty).Height
+        Dim descH As Integer = EmptyTransDesc.GetPreferredSize(Size.Empty).Height
+        Dim blockH As Integer = headH + gapTextToText + descH
+        If AddTransButton.Visible Then blockH += gapTextToButton + AddTransButton.Height
+
+        Dim areaTop As Integer = TransactionSearchBox.Bottom
+        Dim areaBottom As Integer = _historyBaseHeight
+        Dim y As Integer = areaTop + Math.Max(0, (areaBottom - areaTop - blockH) \ 2)
+
+        EmptyTransactionHeading.Top = y
+        y += headH + gapTextToText
+        EmptyTransDesc.Top = y
+        y += descH + gapTextToButton
+        If AddTransButton.Visible Then AddTransButton.Top = y
+
+        For Each c As Control In items
+            Dim w As Integer = If(c.AutoSize, c.GetPreferredSize(Size.Empty).Width, c.Width)
+            c.Left = (TransHistoryPnl.Width - w) \ 2
+        Next
     End Sub
 
     Private Function HistoryRowHeight() As Integer

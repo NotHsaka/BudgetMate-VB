@@ -2,9 +2,12 @@ Imports System
 Imports System.Collections.Generic
 Imports System.IO
 Imports System.Linq
+Imports System.Security.Cryptography
+Imports System.Text
 Imports System.Text.Json
 
-' Saves and loads everything as JSON in %AppData%\BudgetMate\budgetmate-data.json.
+' Saves and loads everything as JSON in %AppData%\BudgetMate.
+' Each signed-in account has its own file (users\<id>.json); "Continue without an account" uses budgetmate-data.json.
 Public NotInheritable Class DataStore
 
     Private Sub New()
@@ -12,7 +15,17 @@ Public NotInheritable Class DataStore
 
     Private Shared ReadOnly FolderPath As String =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BudgetMate")
-    Private Shared ReadOnly FilePath As String = Path.Combine(FolderPath, "budgetmate-data.json")
+
+    ' The file for whoever is signed in right now. The name is a hash of the email, so it is stable,
+    ' unique per account and safe as a file name.
+    Private Shared ReadOnly Property FilePath As String
+        Get
+            If Not UserSession.IsSignedIn Then Return Path.Combine(FolderPath, "budgetmate-data.json")
+            Dim hash As Byte() = SHA256.HashData(Encoding.UTF8.GetBytes(UserSession.Email.Trim().ToLowerInvariant()))
+            Dim name As String = Convert.ToHexString(hash).Substring(0, 24).ToLowerInvariant()
+            Return Path.Combine(FolderPath, "users", name & ".json")
+        End Get
+    End Property
     Private Shared ReadOnly JsonOptions As New JsonSerializerOptions With {
         .WriteIndented = True,
         .PropertyNameCaseInsensitive = True,
@@ -38,7 +51,7 @@ Public NotInheritable Class DataStore
             Return FromJson(File.ReadAllText(FilePath))
         Catch ex As JsonException
             BackupBrokenFile()
-            notice = "Your saved data was unreadable, so BudgetMate started fresh. The old file was kept as budgetmate-data.broken.json."
+            notice = "Your saved data was unreadable, so BudgetMate started fresh. The old file was kept next to it with a .broken.json ending."
             Return AppData.CreateDefault()
         Catch ex As IOException
             notice = "BudgetMate couldn't read your saved data, so it started fresh."
@@ -51,7 +64,7 @@ Public NotInheritable Class DataStore
 
     Public Shared Function Save(data As AppData) As Boolean
         Try
-            Directory.CreateDirectory(FolderPath)
+            Directory.CreateDirectory(Path.GetDirectoryName(FilePath))
             Dim tempPath As String = FilePath & ".tmp"
             File.WriteAllText(tempPath, ToJson(data))
             File.Move(tempPath, FilePath, True)
@@ -63,7 +76,7 @@ Public NotInheritable Class DataStore
 
     Private Shared Sub BackupBrokenFile()
         Try
-            File.Copy(FilePath, Path.Combine(FolderPath, "budgetmate-data.broken.json"), True)
+            File.Copy(FilePath, Path.ChangeExtension(FilePath, ".broken.json"), True)
         Catch ex As Exception
             ' A missing backup should not stop the app from starting.
         End Try

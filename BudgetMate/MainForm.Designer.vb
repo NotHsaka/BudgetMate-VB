@@ -262,8 +262,8 @@ Partial Class MainForm
         pnlDashboard.Controls.Add(pnlHeader)
         pnlDashboard.Dock = DockStyle.Fill
         pnlDashboard.Location = New System.Drawing.Point(0, 0)
+        pnlDashboard.Margin = New Padding(0)
         pnlDashboard.Name = "pnlDashboard"
-        pnlDashboard.Padding = New Padding(20)
         pnlDashboard.Size = New System.Drawing.Size(1895, 1055)
         pnlDashboard.TabIndex = 0
         ' 
@@ -289,9 +289,9 @@ Partial Class MainForm
         PnlContent.Controls.Add(CardBG1)
         PnlContent.Controls.Add(ExpBDBG)
         PnlContent.Dock = DockStyle.Fill
-        PnlContent.Location = New System.Drawing.Point(20, 110)
+        PnlContent.Location = New System.Drawing.Point(0, 90)
         PnlContent.Name = "PnlContent"
-        PnlContent.Size = New System.Drawing.Size(1855, 925)
+        PnlContent.Size = New System.Drawing.Size(1895, 965)
         PnlContent.TabIndex = 12
         ' 
         ' BottomLeftBGText
@@ -336,7 +336,7 @@ Partial Class MainForm
         ' AddTransButton
         ' 
         AddTransButton.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
-        AddTransButton.Location = New System.Drawing.Point(616, 275)
+        AddTransButton.Location = New System.Drawing.Point(619, 275)
         AddTransButton.Name = "AddTransButton"
         AddTransButton.Size = New System.Drawing.Size(227, 59)
         AddTransButton.TabIndex = 22
@@ -346,7 +346,7 @@ Partial Class MainForm
         ' EmptyTransDesc
         ' 
         EmptyTransDesc.AutoSize = True
-        EmptyTransDesc.Font = New System.Drawing.Font("Verdana", 9F)
+        EmptyTransDesc.Font = New System.Drawing.Font("Verdana", 9.0F)
         EmptyTransDesc.ForeColor = Drawing.SystemColors.ButtonFace
         EmptyTransDesc.Location = New System.Drawing.Point(521, 239)
         EmptyTransDesc.Name = "EmptyTransDesc"
@@ -417,7 +417,7 @@ Partial Class MainForm
         ' RecordsCount
         ' 
         RecordsCount.AutoSize = True
-        RecordsCount.Font = New System.Drawing.Font("Verdana", 9F)
+        RecordsCount.Font = New System.Drawing.Font("Verdana", 9.0F)
         RecordsCount.ForeColor = Drawing.SystemColors.ButtonFace
         RecordsCount.Location = New System.Drawing.Point(1297, 29)
         RecordsCount.Name = "RecordsCount"
@@ -427,6 +427,7 @@ Partial Class MainForm
         ' 
         ' TransactionHistoryIcon
         ' 
+        TransactionHistoryIcon.BackgroundImage = CType(resources.GetObject("TransactionHistoryIcon.BackgroundImage"), Drawing.Image)
         TransactionHistoryIcon.Location = New System.Drawing.Point(23, 22)
         TransactionHistoryIcon.Name = "TransactionHistoryIcon"
         TransactionHistoryIcon.Size = New System.Drawing.Size(35, 38)
@@ -435,8 +436,8 @@ Partial Class MainForm
         ' TransactionHistoryHeading
         ' 
         TransactionHistoryHeading.AutoSize = True
-        TransactionHistoryHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        TransactionHistoryHeading.ForeColor = Drawing.SystemColors.ButtonFace
+        TransactionHistoryHeading.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        TransactionHistoryHeading.ForeColor = Drawing.SystemColors.Window
         TransactionHistoryHeading.Location = New System.Drawing.Point(75, 27)
         TransactionHistoryHeading.Name = "TransactionHistoryHeading"
         TransactionHistoryHeading.Size = New System.Drawing.Size(233, 25)
@@ -459,7 +460,7 @@ Partial Class MainForm
         ' ActiveCounter
         ' 
         ActiveCounter.AutoSize = True
-        ActiveCounter.Font = New System.Drawing.Font("Verdana", 9F)
+        ActiveCounter.Font = New System.Drawing.Font("Verdana", 9.0F)
         ActiveCounter.ForeColor = Drawing.SystemColors.ButtonFace
         ActiveCounter.Location = New System.Drawing.Point(1345, 21)
         ActiveCounter.Name = "ActiveCounter"
@@ -470,7 +471,7 @@ Partial Class MainForm
         ' EmptyRecTransDesc
         ' 
         EmptyRecTransDesc.AutoSize = True
-        EmptyRecTransDesc.Font = New System.Drawing.Font("Verdana", 9F)
+        EmptyRecTransDesc.Font = New System.Drawing.Font("Verdana", 9.0F)
         EmptyRecTransDesc.ForeColor = Drawing.SystemColors.ButtonFace
         EmptyRecTransDesc.Location = New System.Drawing.Point(23, 97)
         EmptyRecTransDesc.Name = "EmptyRecTransDesc"
@@ -481,7 +482,7 @@ Partial Class MainForm
         ' RecTransDesc
         ' 
         RecTransDesc.AutoSize = True
-        RecTransDesc.Font = New System.Drawing.Font("Verdana", 9F)
+        RecTransDesc.Font = New System.Drawing.Font("Verdana", 9.0F)
         RecTransDesc.ForeColor = Drawing.SystemColors.ButtonFace
         RecTransDesc.Location = New System.Drawing.Point(23, 65)
         RecTransDesc.Name = "RecTransDesc"
@@ -491,6 +492,7 @@ Partial Class MainForm
         ' 
         ' RecTransIcon
         ' 
+        RecTransIcon.BackgroundImage = CType(resources.GetObject("RecTransIcon.BackgroundImage"), Drawing.Image)
         RecTransIcon.Location = New System.Drawing.Point(23, 14)
         RecTransIcon.Name = "RecTransIcon"
         RecTransIcon.Size = New System.Drawing.Size(35, 38)
@@ -499,19 +501,20 @@ Partial Class MainForm
         ' RecTranHeading
         ' 
         RecTranHeading.AutoSize = True
-        RecTranHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
-        RecTranHeading.ForeColor = Drawing.SystemColors.ButtonFace
+        RecTranHeading.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        RecTranHeading.ForeColor = Drawing.SystemColors.Window
         RecTranHeading.Location = New System.Drawing.Point(75, 19)
         RecTranHeading.Name = "RecTranHeading"
-        RecTranHeading.Size = New System.Drawing.Size(242, 25)
+        RecTranHeading.Size = New System.Drawing.Size(273, 25)
         RecTranHeading.TabIndex = 8
         RecTranHeading.Text = "Recurring Transactions"
         ' 
         ' ViewMonth
         ' 
         ViewMonth.AutoSize = True
+        ViewMonth.BackColor = Drawing.Color.Transparent
         ViewMonth.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        ViewMonth.ForeColor = Drawing.SystemColors.ButtonFace
+        ViewMonth.ForeColor = Drawing.SystemColors.Window
         ViewMonth.Location = New System.Drawing.Point(1192, 119)
         ViewMonth.Name = "ViewMonth"
         ViewMonth.Size = New System.Drawing.Size(161, 22)
@@ -521,7 +524,7 @@ Partial Class MainForm
         ' HeadingDescription
         ' 
         HeadingDescription.AutoSize = True
-        HeadingDescription.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        HeadingDescription.Font = New System.Drawing.Font("Verdana", 9.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         HeadingDescription.ForeColor = Drawing.SystemColors.ButtonFace
         HeadingDescription.Location = New System.Drawing.Point(42, 195)
         HeadingDescription.Name = "HeadingDescription"
@@ -543,7 +546,7 @@ Partial Class MainForm
         ' 
         MonthAndYear.AutoSize = True
         MonthAndYear.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        MonthAndYear.ForeColor = Drawing.SystemColors.ButtonFace
+        MonthAndYear.ForeColor = Drawing.SystemColors.Window
         MonthAndYear.Location = New System.Drawing.Point(82, 26)
         MonthAndYear.Name = "MonthAndYear"
         MonthAndYear.Size = New System.Drawing.Size(171, 22)
@@ -598,7 +601,7 @@ Partial Class MainForm
         ' EmptySavGoalsSubHeading
         ' 
         EmptySavGoalsSubHeading.AutoSize = True
-        EmptySavGoalsSubHeading.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        EmptySavGoalsSubHeading.Font = New System.Drawing.Font("Verdana", 9.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         EmptySavGoalsSubHeading.ForeColor = Drawing.SystemColors.ButtonFace
         EmptySavGoalsSubHeading.Location = New System.Drawing.Point(155, 180)
         EmptySavGoalsSubHeading.Name = "EmptySavGoalsSubHeading"
@@ -620,9 +623,10 @@ Partial Class MainForm
         ' 
         ' EmptySavGoalsIcon
         ' 
-        EmptySavGoalsIcon.Location = New System.Drawing.Point(284, 107)
+        EmptySavGoalsIcon.BackgroundImage = CType(resources.GetObject("EmptySavGoalsIcon.BackgroundImage"), Drawing.Image)
+        EmptySavGoalsIcon.Location = New System.Drawing.Point(269, 79)
         EmptySavGoalsIcon.Name = "EmptySavGoalsIcon"
-        EmptySavGoalsIcon.Size = New System.Drawing.Size(35, 38)
+        EmptySavGoalsIcon.Size = New System.Drawing.Size(66, 66)
         EmptySavGoalsIcon.TabIndex = 16
         ' 
         ' AddNewGoal
@@ -637,6 +641,7 @@ Partial Class MainForm
         ' 
         ' SvGIcon
         ' 
+        SvGIcon.BackgroundImage = My.Resources.Resources.Untitled_design__35_
         SvGIcon.Location = New System.Drawing.Point(23, 15)
         SvGIcon.Name = "SvGIcon"
         SvGIcon.Size = New System.Drawing.Size(35, 38)
@@ -645,8 +650,8 @@ Partial Class MainForm
         ' SavGoalsHeading
         ' 
         SavGoalsHeading.AutoSize = True
-        SavGoalsHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        SavGoalsHeading.ForeColor = Drawing.SystemColors.ButtonFace
+        SavGoalsHeading.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        SavGoalsHeading.ForeColor = Drawing.SystemColors.Window
         SavGoalsHeading.Location = New System.Drawing.Point(75, 20)
         SavGoalsHeading.Name = "SavGoalsHeading"
         SavGoalsHeading.Size = New System.Drawing.Size(156, 25)
@@ -656,6 +661,7 @@ Partial Class MainForm
         ' MainHeading
         ' 
         MainHeading.AutoSize = True
+        MainHeading.BackColor = Drawing.Color.Transparent
         MainHeading.Font = New System.Drawing.Font("Verdana", 19.8000011F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         MainHeading.ForeColor = Drawing.SystemColors.ButtonFace
         MainHeading.Location = New System.Drawing.Point(34, 147)
@@ -693,7 +699,7 @@ Partial Class MainForm
         ' AmtBDO
         ' 
         AmtBDO.AutoSize = True
-        AmtBDO.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
+        AmtBDO.Font = New System.Drawing.Font("Segoe UI", 12.0F, Drawing.FontStyle.Bold)
         AmtBDO.ForeColor = Drawing.SystemColors.ButtonFace
         AmtBDO.Location = New System.Drawing.Point(62, 41)
         AmtBDO.Name = "AmtBDO"
@@ -704,7 +710,7 @@ Partial Class MainForm
         ' BDOHeading
         ' 
         BDOHeading.AutoSize = True
-        BDOHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        BDOHeading.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         BDOHeading.ForeColor = Drawing.SystemColors.ButtonFace
         BDOHeading.Location = New System.Drawing.Point(62, 21)
         BDOHeading.Name = "BDOHeading"
@@ -725,7 +731,7 @@ Partial Class MainForm
         ' AmtGCash
         ' 
         AmtGCash.AutoSize = True
-        AmtGCash.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
+        AmtGCash.Font = New System.Drawing.Font("Segoe UI", 12.0F, Drawing.FontStyle.Bold)
         AmtGCash.ForeColor = Drawing.SystemColors.ButtonFace
         AmtGCash.Location = New System.Drawing.Point(62, 43)
         AmtGCash.Name = "AmtGCash"
@@ -736,7 +742,7 @@ Partial Class MainForm
         ' GCashHeading
         ' 
         GCashHeading.AutoSize = True
-        GCashHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        GCashHeading.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         GCashHeading.ForeColor = Drawing.SystemColors.ButtonFace
         GCashHeading.Location = New System.Drawing.Point(62, 23)
         GCashHeading.Name = "GCashHeading"
@@ -757,7 +763,7 @@ Partial Class MainForm
         ' AmtMaya
         ' 
         AmtMaya.AutoSize = True
-        AmtMaya.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
+        AmtMaya.Font = New System.Drawing.Font("Segoe UI", 12.0F, Drawing.FontStyle.Bold)
         AmtMaya.ForeColor = Drawing.SystemColors.ButtonFace
         AmtMaya.Location = New System.Drawing.Point(63, 41)
         AmtMaya.Name = "AmtMaya"
@@ -768,7 +774,7 @@ Partial Class MainForm
         ' MayaHeading
         ' 
         MayaHeading.AutoSize = True
-        MayaHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MayaHeading.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MayaHeading.ForeColor = Drawing.SystemColors.ButtonFace
         MayaHeading.Location = New System.Drawing.Point(63, 21)
         MayaHeading.Name = "MayaHeading"
@@ -789,7 +795,7 @@ Partial Class MainForm
         ' AmtCash
         ' 
         AmtCash.AutoSize = True
-        AmtCash.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Bold)
+        AmtCash.Font = New System.Drawing.Font("Segoe UI", 12.0F, Drawing.FontStyle.Bold)
         AmtCash.ForeColor = Drawing.SystemColors.ButtonFace
         AmtCash.Location = New System.Drawing.Point(63, 43)
         AmtCash.Name = "AmtCash"
@@ -800,7 +806,7 @@ Partial Class MainForm
         ' CashHeading
         ' 
         CashHeading.AutoSize = True
-        CashHeading.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        CashHeading.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         CashHeading.ForeColor = Drawing.SystemColors.ButtonFace
         CashHeading.Location = New System.Drawing.Point(63, 23)
         CashHeading.Name = "CashHeading"
@@ -810,7 +816,7 @@ Partial Class MainForm
         ' 
         ' AddAccBtn
         ' 
-        AddAccBtn.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        AddAccBtn.Font = New System.Drawing.Font("Verdana", 9.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         AddAccBtn.Location = New System.Drawing.Point(637, 14)
         AddAccBtn.Name = "AddAccBtn"
         AddAccBtn.Size = New System.Drawing.Size(142, 38)
@@ -830,6 +836,7 @@ Partial Class MainForm
         ' 
         ' WalletAndAccIcon
         ' 
+        WalletAndAccIcon.BackgroundImage = My.Resources.Resources.Untitled_design__34_
         WalletAndAccIcon.Location = New System.Drawing.Point(23, 14)
         WalletAndAccIcon.Name = "WalletAndAccIcon"
         WalletAndAccIcon.Size = New System.Drawing.Size(35, 38)
@@ -838,8 +845,8 @@ Partial Class MainForm
         ' WalletsHeading
         ' 
         WalletsHeading.AutoSize = True
-        WalletsHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        WalletsHeading.ForeColor = Drawing.SystemColors.ButtonFace
+        WalletsHeading.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        WalletsHeading.ForeColor = Drawing.SystemColors.Window
         WalletsHeading.Location = New System.Drawing.Point(75, 19)
         WalletsHeading.Name = "WalletsHeading"
         WalletsHeading.Size = New System.Drawing.Size(254, 25)
@@ -932,7 +939,7 @@ Partial Class MainForm
         ' MBLHealth
         ' 
         MBLHealth.AutoSize = True
-        MBLHealth.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLHealth.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLHealth.ForeColor = Drawing.SystemColors.ButtonFace
         MBLHealth.Location = New System.Drawing.Point(40, 10)
         MBLHealth.Name = "MBLHealth"
@@ -1043,7 +1050,7 @@ Partial Class MainForm
         ' MBLMiscellaneous
         ' 
         MBLMiscellaneous.AutoSize = True
-        MBLMiscellaneous.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLMiscellaneous.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLMiscellaneous.ForeColor = Drawing.SystemColors.ButtonFace
         MBLMiscellaneous.Location = New System.Drawing.Point(39, 9)
         MBLMiscellaneous.Name = "MBLMiscellaneous"
@@ -1134,7 +1141,7 @@ Partial Class MainForm
         ' MBLTransportation
         ' 
         MBLTransportation.AutoSize = True
-        MBLTransportation.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLTransportation.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLTransportation.ForeColor = Drawing.SystemColors.ButtonFace
         MBLTransportation.Location = New System.Drawing.Point(43, 10)
         MBLTransportation.Name = "MBLTransportation"
@@ -1225,7 +1232,7 @@ Partial Class MainForm
         ' MBLShopping
         ' 
         MBLShopping.AutoSize = True
-        MBLShopping.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLShopping.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLShopping.ForeColor = Drawing.SystemColors.ButtonFace
         MBLShopping.Location = New System.Drawing.Point(39, 10)
         MBLShopping.Name = "MBLShopping"
@@ -1316,7 +1323,7 @@ Partial Class MainForm
         ' MBLEntertainment
         ' 
         MBLEntertainment.AutoSize = True
-        MBLEntertainment.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLEntertainment.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLEntertainment.ForeColor = Drawing.SystemColors.ButtonFace
         MBLEntertainment.Location = New System.Drawing.Point(40, 9)
         MBLEntertainment.Name = "MBLEntertainment"
@@ -1407,7 +1414,7 @@ Partial Class MainForm
         ' MBLUtilities
         ' 
         MBLUtilities.AutoSize = True
-        MBLUtilities.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLUtilities.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLUtilities.ForeColor = Drawing.SystemColors.ButtonFace
         MBLUtilities.Location = New System.Drawing.Point(40, 10)
         MBLUtilities.Name = "MBLUtilities"
@@ -1498,7 +1505,7 @@ Partial Class MainForm
         ' MBLFood
         ' 
         MBLFood.AutoSize = True
-        MBLFood.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLFood.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLFood.ForeColor = Drawing.SystemColors.ButtonFace
         MBLFood.Location = New System.Drawing.Point(43, 9)
         MBLFood.Name = "MBLFood"
@@ -1589,7 +1596,7 @@ Partial Class MainForm
         ' MBLHousing
         ' 
         MBLHousing.AutoSize = True
-        MBLHousing.Font = New System.Drawing.Font("Segoe UI", 9F, Drawing.FontStyle.Bold)
+        MBLHousing.Font = New System.Drawing.Font("Segoe UI", 9.0F, Drawing.FontStyle.Bold)
         MBLHousing.ForeColor = Drawing.SystemColors.ButtonFace
         MBLHousing.Location = New System.Drawing.Point(43, 11)
         MBLHousing.Name = "MBLHousing"
@@ -1616,6 +1623,7 @@ Partial Class MainForm
         ' 
         ' MBLIcon
         ' 
+        MBLIcon.BackgroundImage = CType(resources.GetObject("MBLIcon.BackgroundImage"), Drawing.Image)
         MBLIcon.Location = New System.Drawing.Point(23, 13)
         MBLIcon.Name = "MBLIcon"
         MBLIcon.Size = New System.Drawing.Size(35, 38)
@@ -1624,8 +1632,8 @@ Partial Class MainForm
         ' WalAndAcc
         ' 
         WalAndAcc.AutoSize = True
-        WalAndAcc.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        WalAndAcc.ForeColor = Drawing.SystemColors.ButtonFace
+        WalAndAcc.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        WalAndAcc.ForeColor = Drawing.SystemColors.Window
         WalAndAcc.Location = New System.Drawing.Point(75, 18)
         WalAndAcc.Name = "WalAndAcc"
         WalAndAcc.Size = New System.Drawing.Size(250, 25)
@@ -1647,7 +1655,7 @@ Partial Class MainForm
         ' TotExpLbl
         ' 
         TotExpLbl.AutoSize = True
-        TotExpLbl.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        TotExpLbl.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         TotExpLbl.ForeColor = Drawing.SystemColors.ButtonFace
         TotExpLbl.Location = New System.Drawing.Point(20, 20)
         TotExpLbl.Name = "TotExpLbl"
@@ -1658,7 +1666,7 @@ Partial Class MainForm
         ' ExpAmt
         ' 
         ExpAmt.AutoSize = True
-        ExpAmt.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        ExpAmt.Font = New System.Drawing.Font("Segoe UI", 12.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         ExpAmt.ForeColor = Drawing.SystemColors.ButtonFace
         ExpAmt.Location = New System.Drawing.Point(20, 53)
         ExpAmt.Name = "ExpAmt"
@@ -1669,7 +1677,7 @@ Partial Class MainForm
         ' ExpDesc
         ' 
         ExpDesc.AutoSize = True
-        ExpDesc.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        ExpDesc.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         ExpDesc.ForeColor = Drawing.SystemColors.ButtonFace
         ExpDesc.Location = New System.Drawing.Point(22, 105)
         ExpDesc.Name = "ExpDesc"
@@ -1679,6 +1687,7 @@ Partial Class MainForm
         ' 
         ' ExpIcon
         ' 
+        ExpIcon.BackgroundImage = My.Resources.Resources.Untitled_design__26_
         ExpIcon.Location = New System.Drawing.Point(295, 14)
         ExpIcon.Name = "ExpIcon"
         ExpIcon.Size = New System.Drawing.Size(35, 38)
@@ -1699,7 +1708,7 @@ Partial Class MainForm
         ' NetBal
         ' 
         NetBal.AutoSize = True
-        NetBal.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        NetBal.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         NetBal.ForeColor = Drawing.SystemColors.ButtonFace
         NetBal.Location = New System.Drawing.Point(20, 20)
         NetBal.Name = "NetBal"
@@ -1710,7 +1719,7 @@ Partial Class MainForm
         ' AmtBal
         ' 
         AmtBal.AutoSize = True
-        AmtBal.Font = New System.Drawing.Font("Segoe UI", 12F)
+        AmtBal.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         AmtBal.ForeColor = Drawing.SystemColors.ButtonFace
         AmtBal.Location = New System.Drawing.Point(20, 53)
         AmtBal.Name = "AmtBal"
@@ -1721,7 +1730,7 @@ Partial Class MainForm
         ' BalDesc
         ' 
         BalDesc.AutoSize = True
-        BalDesc.Font = New System.Drawing.Font("Verdana", 12F)
+        BalDesc.Font = New System.Drawing.Font("Verdana", 12.0F)
         BalDesc.ForeColor = Drawing.SystemColors.ButtonFace
         BalDesc.Location = New System.Drawing.Point(22, 105)
         BalDesc.Name = "BalDesc"
@@ -1731,6 +1740,7 @@ Partial Class MainForm
         ' 
         ' NetBalIcon
         ' 
+        NetBalIcon.BackgroundImage = My.Resources.Resources.Untitled_design__25_
         NetBalIcon.Location = New System.Drawing.Point(295, 14)
         NetBalIcon.Name = "NetBalIcon"
         NetBalIcon.Size = New System.Drawing.Size(35, 38)
@@ -1751,7 +1761,7 @@ Partial Class MainForm
         ' SavRate
         ' 
         SavRate.AutoSize = True
-        SavRate.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        SavRate.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         SavRate.ForeColor = Drawing.SystemColors.ButtonFace
         SavRate.Location = New System.Drawing.Point(20, 20)
         SavRate.Name = "SavRate"
@@ -1762,7 +1772,7 @@ Partial Class MainForm
         ' SavRatePerc
         ' 
         SavRatePerc.AutoSize = True
-        SavRatePerc.Font = New System.Drawing.Font("Segoe UI", 12F)
+        SavRatePerc.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         SavRatePerc.ForeColor = Drawing.SystemColors.ButtonFace
         SavRatePerc.Location = New System.Drawing.Point(20, 53)
         SavRatePerc.Name = "SavRatePerc"
@@ -1773,7 +1783,7 @@ Partial Class MainForm
         ' SavRateDesc
         ' 
         SavRateDesc.AutoSize = True
-        SavRateDesc.Font = New System.Drawing.Font("Verdana", 12F)
+        SavRateDesc.Font = New System.Drawing.Font("Verdana", 12.0F)
         SavRateDesc.ForeColor = Drawing.SystemColors.ButtonFace
         SavRateDesc.Location = New System.Drawing.Point(22, 105)
         SavRateDesc.Name = "SavRateDesc"
@@ -1783,6 +1793,7 @@ Partial Class MainForm
         ' 
         ' IconSavRate
         ' 
+        IconSavRate.BackgroundImage = My.Resources.Resources.Untitled_design__24_
         IconSavRate.Location = New System.Drawing.Point(295, 14)
         IconSavRate.Name = "IconSavRate"
         IconSavRate.Size = New System.Drawing.Size(35, 38)
@@ -1813,9 +1824,9 @@ Partial Class MainForm
         ' EmptyStateHeadingDesc
         ' 
         EmptyStateHeadingDesc.AutoSize = True
-        EmptyStateHeadingDesc.Font = New System.Drawing.Font("Verdana", 9F)
+        EmptyStateHeadingDesc.Font = New System.Drawing.Font("Verdana", 9.0F)
         EmptyStateHeadingDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptyStateHeadingDesc.Location = New System.Drawing.Point(165, 147)
+        EmptyStateHeadingDesc.Location = New System.Drawing.Point(165, 142)
         EmptyStateHeadingDesc.Name = "EmptyStateHeadingDesc"
         EmptyStateHeadingDesc.Size = New System.Drawing.Size(304, 18)
         EmptyStateHeadingDesc.TabIndex = 15
@@ -1827,7 +1838,7 @@ Partial Class MainForm
         EmptyStateHeading.AutoSize = True
         EmptyStateHeading.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         EmptyStateHeading.ForeColor = Drawing.SystemColors.ButtonFace
-        EmptyStateHeading.Location = New System.Drawing.Point(164, 123)
+        EmptyStateHeading.Location = New System.Drawing.Point(164, 118)
         EmptyStateHeading.Name = "EmptyStateHeading"
         EmptyStateHeading.Size = New System.Drawing.Size(306, 22)
         EmptyStateHeading.TabIndex = 14
@@ -1835,6 +1846,7 @@ Partial Class MainForm
         ' 
         ' EmptyStateIcon
         ' 
+        EmptyStateIcon.BackgroundImage = CType(resources.GetObject("EmptyStateIcon.BackgroundImage"), Drawing.Image)
         EmptyStateIcon.Location = New System.Drawing.Point(279, 43)
         EmptyStateIcon.Name = "EmptyStateIcon"
         EmptyStateIcon.Size = New System.Drawing.Size(67, 67)
@@ -1854,8 +1866,8 @@ Partial Class MainForm
         ' CashFlowHistoryLabel
         ' 
         CashFlowHistoryLabel.AutoSize = True
-        CashFlowHistoryLabel.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        CashFlowHistoryLabel.ForeColor = Drawing.SystemColors.ButtonFace
+        CashFlowHistoryLabel.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        CashFlowHistoryLabel.ForeColor = Drawing.SystemColors.Window
         CashFlowHistoryLabel.Location = New System.Drawing.Point(65, 24)
         CashFlowHistoryLabel.Name = "CashFlowHistoryLabel"
         CashFlowHistoryLabel.Size = New System.Drawing.Size(215, 25)
@@ -1864,6 +1876,7 @@ Partial Class MainForm
         ' 
         ' CashFlowIcon
         ' 
+        CashFlowIcon.BackgroundImage = My.Resources.Resources.Untitled_design__27_
         CashFlowIcon.Location = New System.Drawing.Point(19, 20)
         CashFlowIcon.Name = "CashFlowIcon"
         CashFlowIcon.Size = New System.Drawing.Size(35, 38)
@@ -1884,7 +1897,7 @@ Partial Class MainForm
         ' TotalIncome
         ' 
         TotalIncome.AutoSize = True
-        TotalIncome.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        TotalIncome.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         TotalIncome.ForeColor = Drawing.SystemColors.ButtonFace
         TotalIncome.Location = New System.Drawing.Point(20, 20)
         TotalIncome.Name = "TotalIncome"
@@ -1895,7 +1908,7 @@ Partial Class MainForm
         ' AmtIncome
         ' 
         AmtIncome.AutoSize = True
-        AmtIncome.Font = New System.Drawing.Font("Segoe UI", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        AmtIncome.Font = New System.Drawing.Font("Segoe UI", 12.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         AmtIncome.ForeColor = Drawing.SystemColors.ButtonFace
         AmtIncome.Location = New System.Drawing.Point(20, 53)
         AmtIncome.Name = "AmtIncome"
@@ -1906,7 +1919,7 @@ Partial Class MainForm
         ' IncDesc
         ' 
         IncDesc.AutoSize = True
-        IncDesc.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        IncDesc.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         IncDesc.ForeColor = Drawing.SystemColors.ButtonFace
         IncDesc.Location = New System.Drawing.Point(22, 105)
         IncDesc.Name = "IncDesc"
@@ -1916,6 +1929,7 @@ Partial Class MainForm
         ' 
         ' IconInc
         ' 
+        IconInc.BackgroundImage = My.Resources.Resources.Untitled_design__23_
         IconInc.Location = New System.Drawing.Point(295, 14)
         IconInc.Name = "IconInc"
         IconInc.Size = New System.Drawing.Size(35, 38)
@@ -1959,7 +1973,7 @@ Partial Class MainForm
         ' Perc8
         ' 
         Perc8.AutoSize = True
-        Perc8.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc8.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc8.ForeColor = Drawing.SystemColors.ButtonFace
         Perc8.Location = New System.Drawing.Point(476, 238)
         Perc8.Name = "Perc8"
@@ -1970,7 +1984,7 @@ Partial Class MainForm
         ' Perc7
         ' 
         Perc7.AutoSize = True
-        Perc7.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc7.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc7.ForeColor = Drawing.SystemColors.ButtonFace
         Perc7.Location = New System.Drawing.Point(476, 214)
         Perc7.Name = "Perc7"
@@ -1981,8 +1995,8 @@ Partial Class MainForm
         ' ExpBDHeading
         ' 
         ExpBDHeading.AutoSize = True
-        ExpBDHeading.Font = New System.Drawing.Font("Verdana", 12F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
-        ExpBDHeading.ForeColor = Drawing.SystemColors.ButtonFace
+        ExpBDHeading.Font = New System.Drawing.Font("Verdana", 12.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        ExpBDHeading.ForeColor = Drawing.SystemColors.Window
         ExpBDHeading.Location = New System.Drawing.Point(67, 29)
         ExpBDHeading.Name = "ExpBDHeading"
         ExpBDHeading.Size = New System.Drawing.Size(238, 25)
@@ -1991,6 +2005,7 @@ Partial Class MainForm
         ' 
         ' ExpBdIcon
         ' 
+        ExpBdIcon.BackgroundImage = My.Resources.Resources.Untitled_design__28_
         ExpBdIcon.Location = New System.Drawing.Point(23, 24)
         ExpBdIcon.Name = "ExpBdIcon"
         ExpBdIcon.Size = New System.Drawing.Size(35, 38)
@@ -2009,7 +2024,7 @@ Partial Class MainForm
         ' 
         DonutChartAmt.AutoSize = True
         DonutChartAmt.ForeColor = Drawing.SystemColors.ButtonFace
-        DonutChartAmt.Location = New System.Drawing.Point(50, 72)
+        DonutChartAmt.Location = New System.Drawing.Point(68, 95)
         DonutChartAmt.Name = "DonutChartAmt"
         DonutChartAmt.Size = New System.Drawing.Size(45, 20)
         DonutChartAmt.TabIndex = 17
@@ -2020,7 +2035,7 @@ Partial Class MainForm
         ' 
         DonutChartDesc.AutoSize = True
         DonutChartDesc.ForeColor = Drawing.SystemColors.ButtonFace
-        DonutChartDesc.Location = New System.Drawing.Point(31, 47)
+        DonutChartDesc.Location = New System.Drawing.Point(48, 72)
         DonutChartDesc.Name = "DonutChartDesc"
         DonutChartDesc.Size = New System.Drawing.Size(84, 20)
         DonutChartDesc.TabIndex = 16
@@ -2086,7 +2101,7 @@ Partial Class MainForm
         ' Housing
         ' 
         Housing.AutoSize = True
-        Housing.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Housing.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Housing.ForeColor = Drawing.SystemColors.ButtonFace
         Housing.Location = New System.Drawing.Point(274, 74)
         Housing.Name = "Housing"
@@ -2097,7 +2112,7 @@ Partial Class MainForm
         ' Food
         ' 
         Food.AutoSize = True
-        Food.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Food.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Food.ForeColor = Drawing.SystemColors.ButtonFace
         Food.Location = New System.Drawing.Point(274, 96)
         Food.Name = "Food"
@@ -2108,7 +2123,7 @@ Partial Class MainForm
         ' Transportation
         ' 
         Transportation.AutoSize = True
-        Transportation.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Transportation.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Transportation.ForeColor = Drawing.SystemColors.ButtonFace
         Transportation.Location = New System.Drawing.Point(274, 119)
         Transportation.Name = "Transportation"
@@ -2119,7 +2134,7 @@ Partial Class MainForm
         ' Utilities
         ' 
         Utilities.AutoSize = True
-        Utilities.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Utilities.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Utilities.ForeColor = Drawing.SystemColors.ButtonFace
         Utilities.Location = New System.Drawing.Point(274, 142)
         Utilities.Name = "Utilities"
@@ -2130,7 +2145,7 @@ Partial Class MainForm
         ' Entertainment
         ' 
         Entertainment.AutoSize = True
-        Entertainment.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Entertainment.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Entertainment.ForeColor = Drawing.SystemColors.ButtonFace
         Entertainment.Location = New System.Drawing.Point(274, 165)
         Entertainment.Name = "Entertainment"
@@ -2141,7 +2156,7 @@ Partial Class MainForm
         ' Shopping
         ' 
         Shopping.AutoSize = True
-        Shopping.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Shopping.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Shopping.ForeColor = Drawing.SystemColors.ButtonFace
         Shopping.Location = New System.Drawing.Point(274, 214)
         Shopping.Name = "Shopping"
@@ -2152,7 +2167,7 @@ Partial Class MainForm
         ' Perc5
         ' 
         Perc5.AutoSize = True
-        Perc5.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc5.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc5.ForeColor = Drawing.SystemColors.ButtonFace
         Perc5.Location = New System.Drawing.Point(476, 165)
         Perc5.Name = "Perc5"
@@ -2163,7 +2178,7 @@ Partial Class MainForm
         ' Miscellaneous
         ' 
         Miscellaneous.AutoSize = True
-        Miscellaneous.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Miscellaneous.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Miscellaneous.ForeColor = Drawing.SystemColors.ButtonFace
         Miscellaneous.Location = New System.Drawing.Point(274, 238)
         Miscellaneous.Name = "Miscellaneous"
@@ -2174,7 +2189,7 @@ Partial Class MainForm
         ' Health
         ' 
         Health.AutoSize = True
-        Health.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Health.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Health.ForeColor = Drawing.SystemColors.ButtonFace
         Health.Location = New System.Drawing.Point(274, 190)
         Health.Name = "Health"
@@ -2185,7 +2200,7 @@ Partial Class MainForm
         ' Perc1
         ' 
         Perc1.AutoSize = True
-        Perc1.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc1.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc1.ForeColor = Drawing.SystemColors.ButtonFace
         Perc1.Location = New System.Drawing.Point(476, 74)
         Perc1.Name = "Perc1"
@@ -2196,7 +2211,7 @@ Partial Class MainForm
         ' Perc2
         ' 
         Perc2.AutoSize = True
-        Perc2.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc2.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc2.ForeColor = Drawing.SystemColors.ButtonFace
         Perc2.Location = New System.Drawing.Point(476, 96)
         Perc2.Name = "Perc2"
@@ -2207,7 +2222,7 @@ Partial Class MainForm
         ' Perc3
         ' 
         Perc3.AutoSize = True
-        Perc3.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc3.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc3.ForeColor = Drawing.SystemColors.ButtonFace
         Perc3.Location = New System.Drawing.Point(476, 119)
         Perc3.Name = "Perc3"
@@ -2218,7 +2233,7 @@ Partial Class MainForm
         ' Perc6
         ' 
         Perc6.AutoSize = True
-        Perc6.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc6.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc6.ForeColor = Drawing.SystemColors.ButtonFace
         Perc6.Location = New System.Drawing.Point(476, 190)
         Perc6.Name = "Perc6"
@@ -2229,7 +2244,7 @@ Partial Class MainForm
         ' Perc4
         ' 
         Perc4.AutoSize = True
-        Perc4.Font = New System.Drawing.Font("Segoe UI", 12F)
+        Perc4.Font = New System.Drawing.Font("Segoe UI", 12.0F)
         Perc4.ForeColor = Drawing.SystemColors.ButtonFace
         Perc4.Location = New System.Drawing.Point(476, 142)
         Perc4.Name = "Perc4"
@@ -2249,9 +2264,10 @@ Partial Class MainForm
         pnlHeader.Controls.Add(DataDropdown)
         pnlHeader.Controls.Add(AddTransaction)
         pnlHeader.Dock = DockStyle.Top
-        pnlHeader.Location = New System.Drawing.Point(20, 20)
+        pnlHeader.Location = New System.Drawing.Point(0, 0)
+        pnlHeader.Margin = New Padding(0)
         pnlHeader.Name = "pnlHeader"
-        pnlHeader.Size = New System.Drawing.Size(1855, 90)
+        pnlHeader.Size = New System.Drawing.Size(1895, 90)
         pnlHeader.TabIndex = 0
         ' 
         ' PictureBox1
@@ -2280,7 +2296,7 @@ Partial Class MainForm
         ' 
         PesoLogo.AutoSize = True
         PesoLogo.BackColor = Drawing.Color.FromArgb(CByte(0), CByte(192), CByte(0))
-        PesoLogo.Font = New System.Drawing.Font("Segoe UI", 18F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
+        PesoLogo.Font = New System.Drawing.Font("Segoe UI", 18.0F, Drawing.FontStyle.Bold, Drawing.GraphicsUnit.Point, CByte(0))
         PesoLogo.ForeColor = Drawing.Color.White
         PesoLogo.Location = New System.Drawing.Point(23, 26)
         PesoLogo.Name = "PesoLogo"
@@ -2292,7 +2308,7 @@ Partial Class MainForm
         ' 
         BudgetMateTitle.AutoSize = True
         BudgetMateTitle.BackColor = Drawing.Color.Transparent
-        BudgetMateTitle.Font = New System.Drawing.Font("Copperplate Gothic Light", 24F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        BudgetMateTitle.Font = New System.Drawing.Font("Copperplate Gothic Light", 24.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         BudgetMateTitle.ForeColor = Drawing.SystemColors.ButtonFace
         BudgetMateTitle.Location = New System.Drawing.Point(98, 15)
         BudgetMateTitle.Name = "BudgetMateTitle"
@@ -2313,20 +2329,22 @@ Partial Class MainForm
         ' ToggleTheme
         ' 
         ToggleTheme.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        ToggleTheme.BackColor = Drawing.Color.Transparent
         ToggleTheme.BackgroundImageLayout = ImageLayout.None
+        ToggleTheme.FlatStyle = FlatStyle.Flat
         ToggleTheme.Image = CType(resources.GetObject("ToggleTheme.Image"), Drawing.Image)
-        ToggleTheme.Location = New System.Drawing.Point(1445, 13)
+        ToggleTheme.Location = New System.Drawing.Point(1485, 13)
         ToggleTheme.Name = "ToggleTheme"
         ToggleTheme.Size = New System.Drawing.Size(65, 63)
         ToggleTheme.TabIndex = 1
-        ToggleTheme.UseVisualStyleBackColor = True
+        ToggleTheme.UseVisualStyleBackColor = False
         ' 
         ' DataDropdown
         ' 
         DataDropdown.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         DataDropdown.Font = New System.Drawing.Font("Verdana", 10.8F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         DataDropdown.FormattingEnabled = True
-        DataDropdown.Location = New System.Drawing.Point(1526, 30)
+        DataDropdown.Location = New System.Drawing.Point(1566, 30)
         DataDropdown.Name = "DataDropdown"
         DataDropdown.Size = New System.Drawing.Size(130, 30)
         DataDropdown.TabIndex = 1
@@ -2335,8 +2353,8 @@ Partial Class MainForm
         ' AddTransaction
         ' 
         AddTransaction.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        AddTransaction.Font = New System.Drawing.Font("Verdana", 9F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
-        AddTransaction.Location = New System.Drawing.Point(1674, 24)
+        AddTransaction.Font = New System.Drawing.Font("Verdana", 9.0F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        AddTransaction.Location = New System.Drawing.Point(1714, 24)
         AddTransaction.Name = "AddTransaction"
         AddTransaction.Size = New System.Drawing.Size(153, 41)
         AddTransaction.TabIndex = 3

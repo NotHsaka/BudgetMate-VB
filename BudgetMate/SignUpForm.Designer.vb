@@ -42,6 +42,7 @@ Partial Class SignUpForm
         lblError = New Label()
         btnCreate = New Button()
         linkSkip = New LinkLabel()
+        linkSignIn = New LinkLabel()
         cardSignUp.SuspendLayout()
         CType(LogoPBSI, System.ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -65,6 +66,7 @@ Partial Class SignUpForm
         cardSignUp.Controls.Add(chkShowPassword)
         cardSignUp.Controls.Add(lblError)
         cardSignUp.Controls.Add(btnCreate)
+        cardSignUp.Controls.Add(linkSignIn)
         cardSignUp.Controls.Add(linkSkip)
         cardSignUp.Location = New System.Drawing.Point(275, 20)
         cardSignUp.Margin = New Padding(4)
@@ -274,15 +276,31 @@ Partial Class SignUpForm
         linkSkip.Cursor = Cursors.Hand
         linkSkip.Font = New System.Drawing.Font("Verdana", 10.2F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
         linkSkip.LinkColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
-        linkSkip.Location = New System.Drawing.Point(45, 765)
+        linkSkip.Location = New System.Drawing.Point(45, 790)
         linkSkip.Margin = New Padding(4, 0, 4, 0)
         linkSkip.Name = "linkSkip"
         linkSkip.Size = New System.Drawing.Size(485, 28)
-        linkSkip.TabIndex = 6
+        linkSkip.TabIndex = 7
         linkSkip.TabStop = True
-        linkSkip.Text = "Skip for now"
+        linkSkip.Text = "Continue without an account"
         linkSkip.TextAlign = Drawing.ContentAlignment.MiddleCenter
         linkSkip.VisitedLinkColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
+        ' 
+        ' linkSignIn
+        ' 
+        linkSignIn.ActiveLinkColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
+        linkSignIn.Cursor = Cursors.Hand
+        linkSignIn.Font = New System.Drawing.Font("Verdana", 10.2F, Drawing.FontStyle.Regular, Drawing.GraphicsUnit.Point, CByte(0))
+        linkSignIn.LinkColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
+        linkSignIn.Location = New System.Drawing.Point(45, 755)
+        linkSignIn.Margin = New Padding(4, 0, 4, 0)
+        linkSignIn.Name = "linkSignIn"
+        linkSignIn.Size = New System.Drawing.Size(485, 28)
+        linkSignIn.TabIndex = 6
+        linkSignIn.TabStop = True
+        linkSignIn.Text = "Already have an account? Sign in"
+        linkSignIn.TextAlign = Drawing.ContentAlignment.MiddleCenter
+        linkSignIn.VisitedLinkColor = Drawing.Color.FromArgb(CByte(22), CByte(189), CByte(139))
         ' 
         ' SignUpForm
         ' 
@@ -318,6 +336,7 @@ Partial Class SignUpForm
     Friend WithEvents lblError As Label
     Friend WithEvents btnCreate As Button
     Friend WithEvents linkSkip As LinkLabel
+    Friend WithEvents linkSignIn As LinkLabel
     Friend WithEvents lblLogo As Label
     Friend WithEvents LogoPBSI As PictureBox
 
