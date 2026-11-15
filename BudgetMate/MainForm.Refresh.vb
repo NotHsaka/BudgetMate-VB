@@ -23,7 +23,7 @@ Partial Class MainForm
         If _budget.SaveFailed Then
             ' Shown only when Windows refused the save (e.g. disk full or folder locked).
             _budget.SaveFailed = False
-            MessageBox.Show(Me, "BudgetMate couldn't save your changes to disk.", "BudgetMate",
+            MessageBox.Show(Me, "PesoMint couldn't save your changes to disk.", "PesoMint",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 

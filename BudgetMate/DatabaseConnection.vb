@@ -13,7 +13,7 @@ Public Class DatabaseConnection
         Try
             Using connection As MySqlConnection = GetConnection()
                 connection.Open()
-                Return "Successfully connected to the BudgetMate database!"
+                Return "Successfully connected to the PesoMint database!"
             End Using
 
         Catch ex As Exception

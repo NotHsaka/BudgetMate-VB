@@ -5,8 +5,8 @@
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<UseWindowsForms>true</UseWindowsForms>
 
-		<RootNamespace>BudgetMate</RootNamespace>
-		<AssemblyName>BudgetMate</AssemblyName>
+		<RootNamespace>PesoMint</RootNamespace>
+		<AssemblyName>PesoMint</AssemblyName>
 
 		<MyType>WindowsFormsWithCustomSubMain</MyType>
 		<StartupObject>Sub Main</StartupObject>

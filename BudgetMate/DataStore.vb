@@ -51,13 +51,13 @@ Public NotInheritable Class DataStore
             Return FromJson(File.ReadAllText(FilePath))
         Catch ex As JsonException
             BackupBrokenFile()
-            notice = "Your saved data was unreadable, so BudgetMate started fresh. The old file was kept next to it with a .broken.json ending."
+            notice = "Your saved data was unreadable, so PesoMint started fresh. The old file was kept next to it with a .broken.json ending."
             Return AppData.CreateDefault()
         Catch ex As IOException
-            notice = "BudgetMate couldn't read your saved data, so it started fresh."
+            notice = "PesoMint couldn't read your saved data, so it started fresh."
             Return AppData.CreateDefault()
         Catch ex As UnauthorizedAccessException
-            notice = "BudgetMate isn't allowed to read your saved data, so it started fresh."
+            notice = "PesoMint isn't allowed to read your saved data, so it started fresh."
             Return AppData.CreateDefault()
         End Try
     End Function

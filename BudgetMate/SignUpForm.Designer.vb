@@ -314,7 +314,7 @@ Partial Class SignUpForm
         MinimumSize = New System.Drawing.Size(670, 898)
         Name = "SignUpForm"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "BudgetMate - Create account"
+        Text = "PesoMint - Create account"
         cardSignUp.ResumeLayout(False)
         cardSignUp.PerformLayout()
         CType(LogoPBSI, System.ComponentModel.ISupportInitialize).EndInit()
