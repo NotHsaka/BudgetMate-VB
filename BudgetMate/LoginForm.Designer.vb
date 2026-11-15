@@ -233,7 +233,7 @@ Partial Class LoginForm
         MinimumSize = New System.Drawing.Size(670, 898)
         Name = "LoginForm"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "BudgetMate - Sign in"
+        Text = "PesoMint - Sign in"
         cardLogin.ResumeLayout(False)
         cardLogin.PerformLayout()
         CType(LogoPBSI, System.ComponentModel.ISupportInitialize).EndInit()

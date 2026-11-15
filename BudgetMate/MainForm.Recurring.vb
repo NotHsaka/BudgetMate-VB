@@ -35,7 +35,7 @@ Partial Class MainForm
         If _recurringBuilt Then Return
         _recurringBuilt = True
 
-        ' Keep monthly entries current even if BudgetMate stays open across a due date.
+        ' Keep monthly entries current even if PesoMint stays open across a due date.
         _recurringTimer = New System.Windows.Forms.Timer()
         _recurringTimer.Interval = 60000
         AddHandler _recurringTimer.Tick, AddressOf RecurringTimer_Tick

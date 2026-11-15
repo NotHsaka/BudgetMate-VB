@@ -37,7 +37,7 @@ Public Class MainForm
         End With
 
         If _budget.LoadNotice.Length > 0 Then
-            MessageBox.Show(Me, _budget.LoadNotice, "BudgetMate", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show(Me, _budget.LoadNotice, "PesoMint", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
